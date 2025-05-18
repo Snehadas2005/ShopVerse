@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopverse Project</title>
+
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Load a font called Roboto from Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Here are the CSS files for this page. -->
+    <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/shared/shopverse-header.css">
+    <link rel="stylesheet" href="styles/pages/shopverse.css">
+  </head>
+  <body>
+    <div class="shopverse-header">
+      <div class="shopverse-header-left-section">
+        <a href="shopverse.html" class="header-link">
+          <img class="shopverse-logo"
+            src="images/shopverse-black.png">
+          <img class="shopverse-mobile-logo"
+            src="images/logo-black.png">
+        </a>
+      </div>
+
+      <div class="shopverse-header-middle-section">
+        <input class="search-bar" type="text" placeholder="Search">
+
+        <button class="search-button">
+          <img class="search-icon" src="images/icons/search-icon.png">
+        </button>
+      </div>
+
+      <div class="shopverse-header-right-section">
+        <a class="orders-link header-link" href="orders.html">
+          <span class="returns-text">Returns</span>
+          <span class="orders-text">& Orders</span>
+        </a>
+
+        <a class="cart-link header-link" href="checkout.html">
+          <img class="cart-icon" src="images/icons/cart-icon.png">
+          <div class="cart-quantity">3</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+    
+    <div class="main">
+      <div class="products-grid">
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/boots-2.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Rise Fashion Fuzzy Lace Combat Boots
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              45
+            </div>
+          </div>
+
+          <div class="product-price">
+            ₹678.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/boots-1.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Shoe'N Tale Stretch Suede Chunky Boots
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              87
+            </div>
+          </div>
+
+          <div class="product-price">
+            ₹950.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/dress-1.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Raysaa Corderio Vintage Corset Crop Top with Mini Dobby Skirt
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-40.png">
+            <div class="product-rating-count link-primary">
+              127
+            </div>
+          </div>
+
+          <div class="product-price">
+            ₹1019.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/dress-2.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Dagin Criss Sleveless Summer Floral Print Dress
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-40.png">
+            <div class="product-rating-count link-primary">
+              64
+            </div>
+          </div>
+
+          <div class="product-price">
+            ₹993.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/earrings-1.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Abaan Gallery Sparkling Crystal Studded Silver Earrings
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              56
+            </div>
+          </div>
+
+          <div class="product-price">
+            ₹360.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/earrings-2.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Fida Silver Earrings
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              41
+            </div>
+          </div>
+
+          <div class="product-price">
+            ₹459.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/earrings-2.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Fida Silver Earrings
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              41
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹459.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/bag-2.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Ivy Roses Fairycore Cottagecore Princesscore Bag
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              23
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹690.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/bag-2.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Ivy Roses Fairycore Cottagecore Princesscore Bag
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              23
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹690.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/bag-3.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Ivy Embroidered Bag 
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              50
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹830.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/combo-6.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Office Daily Look by Elivn
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              10
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹5999.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/combo-2.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Celadon Print Camisole with Vest
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              15
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹5429.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/heels-1.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Stuart Heeled Sandal
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              25
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹989.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/heels-2.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            STEVE MADDEN Dream-On Chunky-Heeled Sandals
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              20
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹1470.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/jeans-3.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Masterly Weft Light Blue Color Jeans 
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              32
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹670.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/jeans-5.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Gold DA-Fashion's Chic Women's Jeans  
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              27
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹681.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/tops-1.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Green Draped Collar Halter Back Metal Decorative Buckle  
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              36
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹1580.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/tops-2.jpg">
+          </div>
+  
+          <div class="product-name limit-text-to-2-lines">
+            Gothic Tie-Hem Top – Goth N' Rock 
+          </div>
+  
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              39
+            </div>
+          </div>
+  
+          <div class="product-price">
+            ₹1275.00
+          </div>
+  
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+  
+          <div class="product-spacer"></div>
+  
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Added
+          </div>
+  
+          <button class="add-to-cart-button button-primary">
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

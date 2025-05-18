@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Load a font called Roboto from Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Here are the CSS files for this page. -->
+    <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/pages/checkout/checkout-header.css">
+    <link rel="stylesheet" href="styles/pages/checkout/checkout.css">
+  </head>
+  <body>
+    <div class="checkout-header">
+      <div class="header-content">
+        <div class="checkout-header-left-section">
+          <a href="shopverse.html">
+            <img class="shopverse-logo" src="images/shopverse-black.png">
+            <img class="shopverse-mobile-logo" src="images/logo-black.png">
+          </a>
+        </div>
+
+        <div class="checkout-header-middle-section">
+          Checkout (<a class="return-to-home-link"
+            href="shopverse.html">2 items</a>)
+        </div>
+
+        <div class="checkout-header-right-section">
+          <img src="images/icons/checkout-lock-icon.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="page-title">Review your order</div>
+
+      <div class="checkout-grid">
+        <div class="order-summary">
+          <div class="cart-item-container">
+            <div class="delivery-date">
+              Delivery date: Sunday, May 25
+            </div>
+
+            <div class="cart-item-details-grid">
+              <img class="product-image"
+                src="images/products/black-aline-4.jpg">
+
+              <div class="cart-item-details">
+                <div class="product-name">
+                  Belle Elegant Black Off Shoulder Patchwork Lace Flutter
+                </div>
+                <div class="product-price">
+                  ₹1260.00
+                </div>
+                <div class="product-quantity">
+                  <span>
+                    Quantity: <span class="quantity-label">1</span>
+                  </span>
+                  <span class="update-quantity-link link-primary">
+                    Update
+                  </span>
+                  <span class="delete-quantity-link link-primary">
+                    Delete
+                  </span>
+                </div>
+              </div>
+
+              <div class="delivery-options">
+                <div class="delivery-options-title">
+                  Choose a delivery option:
+                </div>
+                <div class="delivery-option">
+                  <input type="radio" checked
+                    class="delivery-option-input"
+                    name="delivery-option-1">
+                  <div>
+                    <div class="delivery-option-date">
+                      Tuesday, May 27
+                    </div>
+                    <div class="delivery-option-price">
+                      FREE Shipping
+                    </div>
+                  </div>
+                </div>
+                <div class="delivery-option">
+                  <input type="radio"
+                    class="delivery-option-input"
+                    name="delivery-option-1">
+                  <div>
+                    <div class="delivery-option-date">
+                      Monday, May 26
+                    </div>
+                    <div class="delivery-option-price">
+                      ₹35.00 - Shipping
+                    </div>
+                  </div>
+                </div>
+                <div class="delivery-option">
+                  <input type="radio"
+                    class="delivery-option-input"
+                    name="delivery-option-1">
+                  <div>
+                    <div class="delivery-option-date">
+                      Sunday, May 25
+                    </div>
+                    <div class="delivery-option-price">
+                      ₹50.00 - Shipping
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-item-container">
+            <div class="delivery-date">
+              Delivery date: Sunday, May 25
+            </div>
+
+            <div class="cart-item-details-grid">
+              <img class="product-image"
+                src="images/products/heels-4.jpg">
+
+              <div class="cart-item-details">
+                <div class="product-name">
+                  ZAKFY Bow Pointed Toe High Heels
+                </div>
+                <div class="product-price">
+                  ₹876.00
+                </div>
+                <div class="product-quantity">
+                  <span>
+                    Quantity: <span class="quantity-label">1</span>
+                  </span>
+                  <span class="update-quantity-link link-primary">
+                    Update
+                  </span>
+                  <span class="delete-quantity-link link-primary">
+                    Delete
+                  </span>
+                </div>
+              </div>
+
+              <div class="delivery-options">
+                <div class="delivery-options-title">
+                  Choose a delivery option:
+                </div>
+
+                <div class="delivery-option">
+                  <input type="radio" class="delivery-option-input"
+                    name="delivery-option-2">
+                  <div>
+                    <div class="delivery-option-date">
+                      Tuesday, May 27
+                    </div>
+                    <div class="delivery-option-price">
+                      FREE Shipping
+                    </div>
+                  </div>
+                </div>
+                <div class="delivery-option">
+                  <input type="radio" checked class="delivery-option-input"
+                    name="delivery-option-2">
+                  <div>
+                    <div class="delivery-option-date">
+                      Monday, May 26
+                    </div>
+                    <div class="delivery-option-price">
+                      ₹35.00 - Shipping
+                    </div>
+                  </div>
+                </div>
+                <div class="delivery-option">
+                  <input type="radio" class="delivery-option-input"
+                    name="delivery-option-2">
+                  <div>
+                    <div class="delivery-option-date">
+                      Sunday, May 25
+                    </div>
+                    <div class="delivery-option-price">
+                      ₹50.00 - Shipping
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-summary">
+          <div class="payment-summary-title">
+            Order Summary
+          </div>
+
+          <div class="payment-summary-row">
+            <div>Items (2):</div>
+            <div class="payment-summary-money">₹2136.00</div>
+          </div>
+
+          <div class="payment-summary-row">
+            <div>Shipping &amp; handling:</div>
+            <div class="payment-summary-money">₹100.00</div>
+          </div>
+
+          <div class="payment-summary-row total-row">
+            <div>Order total:</div>
+            <div class="payment-summary-money">₹2236.00</div>
+          </div>
+
+          <button class="place-order-button button-primary">
+            Place your order
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
