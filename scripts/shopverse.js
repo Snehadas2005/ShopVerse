@@ -718,4 +718,4 @@ const products = [{
         count: 214
     },
     priceCount: 999.00
-},];
+}];
