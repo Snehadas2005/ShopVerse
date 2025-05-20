@@ -23,6 +23,38 @@ const products = [{
     },
     priceCount: 2599.00
 }, {
+    image: 'images/products/dress-6.jpg',
+    name: 'Teuta Matoshi Cherry Print Flared Dress',
+    rating: {
+        stars: 4.5,
+        count: 87
+    },
+    priceCount: 1116.00
+}, {
+    image: 'images/products/dress-7.jpg',
+    name: 'Boohoo Slit Ruched Midi Dress ',
+    rating: {
+        stars: 5,
+        count: 190
+    },
+    priceCount: 4199.00
+}, {
+    image: 'images/products/dress-9.jpg',
+    name: 'The Bebo Urbane Elegant Maroon Midi Dress ',
+    rating: {
+        stars: 4,
+        count: 31
+    },
+    priceCount: 2331.00
+}, {
+    image: 'images/products/dress-10.jpg',
+    name: 'Uncut Spaghetti Strap High Waist Elegant Embriodery',
+    rating: {
+        stars: 3.5,
+        count: 59
+    },
+    priceCount: 1759.00
+},{
     image: 'images/products/boots-2.jpg',
     name: 'Rise Fashion Fuzzy Lace Combat Boots',
     rating: {
@@ -79,7 +111,7 @@ const products = [{
     },
     priceCount: 479.00
 }, {
-    image: 'images/products/earrings-3.jpg',
+    image: 'images/products/earrings-7.jpg',
     name: 'Yellow Chimes Silver Tone Elegant Earrings',
     rating: {
         stars: 4,
@@ -87,7 +119,15 @@ const products = [{
     },
     priceCount: 659.00
 }, {
-    image: 'images/products/earrings-4.jpg',
+    image: 'images/products/earrings-9.jpg',
+    name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
+    rating: {
+        stars: 3,
+        count: 6
+    },
+    priceCount: 567.00
+}, {
+    image: 'images/products/earrings-6.jpg',
     name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
     rating: {
         stars: 3,
@@ -96,14 +136,6 @@ const products = [{
     priceCount: 567.00
 }, {
     image: 'images/products/earrings-5.jpg',
-    name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
-    rating: {
-        stars: 3,
-        count: 6
-    },
-    priceCount: 567.00
-}, {
-    image: 'images/products/earrings-3.jpg',
     name: 'Peave Elongated Pear Drop CZ Earrings',
     rating: {
         stars: 4.5,
@@ -197,7 +229,7 @@ const products = [{
         stars: 3.5,
         count: 19
     },
-    priceCount: 4420.00
+    priceCount: 19450.00
 }, {
     image: 'images/products/combo-9.jpg',
     name: 'Solo Date look by Glitz Africa ',
@@ -519,7 +551,7 @@ const products = [{
     },
     priceCount: 670.00
 },{
-    image: 'images/products/pendant-4.jpg',
+    image: 'images/products/pendant-5.jpg',
     name: 'Shining Stars Charm Sterling Silver Delicate Necklace',
     rating: {
         stars: 4,
@@ -527,7 +559,7 @@ const products = [{
     },
     priceCount: 1150.00
 },{
-    image: 'images/products/pendant-5.jpg',
+    image: 'images/products/pendant-6.jpg',
     name: 'Purple Opal Sun Necklace',
     rating: {
         stars: 5,
@@ -535,7 +567,7 @@ const products = [{
     },
     priceCount: 2049.00
 },{
-    image: 'images/products/pendant-6.jpg',
+    image: 'images/products/pendant-9.jpg',
     name: 'Shining Diva Heart Shaped Blue Ruby Necklace',
     rating: {
         stars: 4.5,
@@ -575,7 +607,7 @@ const products = [{
     },
     priceCount: 1887.00
 }, {
-    image: 'images/products/rings-7.jpg',
+    image: 'images/products/rings-8.jpg',
     name: 'GALAXY Butterfly Pair Ring ',
     rating: {
         stars: 5,
@@ -583,7 +615,7 @@ const products = [{
     },
     priceCount: 3580.00
 }, {
-    image: 'images/products/rings-6.jpg',
+    image: 'images/products/rings-7.jpg',
     name: 'ASTRAY Leafy Ring',
     rating: {
         stars: 4,
@@ -607,7 +639,7 @@ const products = [{
     },
     priceCount: 6300.00
 },{
-    image: 'images/products/sare-peach.jpg',
+    image: 'images/products/saree-peach.jpg',
     name: 'Kalista Sequinned Organza Saree',
     rating: {
         stars: 4,
@@ -615,7 +647,7 @@ const products = [{
     },
     priceCount: 7440.00
 },{
-    image: 'images/products/sare-white.jpg',
+    image: 'images/products/saree-white.jpg',
     name: 'Miranda House White Embroidered Georgette Saree',
     rating: {
         stars: 5,
@@ -623,6 +655,22 @@ const products = [{
     },
     priceCount: 5500.00
 }, {
+    image: 'images/products/saree-gliter.jpg',
+    name: 'Bharodiya Enterprises Chikankaari Saree',
+    rating: {
+        stars: 4,
+        count: 48
+    },
+    priceCount: 7785.00
+},{
+    image: 'images/products/saree-maroon.jpg',
+    name: 'Butani Export Solid Maroon Saree',
+    rating: {
+        stars: 4.5,
+        count: 100
+    },
+    priceCount: 3499.00
+},{
     image: 'images/products/skirts-1.jpg',
     name: 'Berrylush Black Floral Printed A-line Side Slit Maxi Skirt',
     rating: {
@@ -718,4 +766,56 @@ const products = [{
         count: 214
     },
     priceCount: 999.00
-},];
+}];
+
+let productsHTML = '';
+
+products.forEach((product) => {
+    productsHTML += `
+        <div class="product-container">
+            <div class="product-image-container">
+                <img class= "product-image"
+                src ="${product.image}">
+            </div>
+
+            <div class="product-name limit-text-to-2-lines">
+                ${product.name}
+            </div>
+
+            <div class="product-rating-container">
+                <img class="product-rating-stars"
+                src="images/ratings/rating-${product.rating.stars * 10}.png">
+                <div class="product-rating-count link-primary">
+                    ${product.rating.count}
+                </div>
+            </div>
+
+            <div class="product-price">
+                ₹${product.priceCount}
+            </div>
+
+            <div class="product-quantity-container">
+                <select>
+                <option selected value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>
+            </div>
+
+            <div class="product-spacer"></div>
+
+            <div class="added-to-cart">
+                <img src="images/icons/checkmark.png">
+                Added
+            </div>
+
+            <button class="add-to-cart-button button-primary">
+                Add to Cart
+            </button>
+        </div>
+    `;
+});
+
+document.querySelector('.js-products-grid').innerHTML = productsHTML;
