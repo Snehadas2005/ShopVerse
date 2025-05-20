@@ -1,4 +1,4 @@
-const products = [{
+export const products = [{
     id: "2f6e2c2e-5828-4a54-b9e3-4c0be0138253",
     image: 'images/products/dress-1.jpg',
     name: 'Raysaa Corderio Vintage Corset Crop Top with Mini Dobby Skirt',
