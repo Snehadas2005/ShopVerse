@@ -1,660 +1,779 @@
-const products = [
-  {
-    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+const products = [{
+    image: 'images/products/dress-1.jpg',
+    name: 'Raysaa Corderio Vintage Corset Crop Top with Mini Dobby Skirt',
     rating: {
-      stars: 4.5,
-      count: 87
+        stars: 4.5,
+        count: 27
     },
-    priceCents: 1090,
+    priceCount: 1019.00,
     keywords: [
-      "socks",
-      "sports",
-      "apparel"
+        "Dress",
+        "Corset",
+        "Vintage"
     ]
-  },
-  {
-    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    image: "images/products/intermediate-composite-basketball.jpg",
-    name: "Intermediate Size Basketball",
+}, {
+    image: 'images/products/dress-3.jpg',
+    name: 'BENDISTAR BUTIK White Floral Midi Slit Dress',
     rating: {
-      stars: 4,
-      count: 127
+        stars: 4,
+        count: 22
     },
-    priceCents: 2095,
+    priceCount: 4893.00,
     keywords: [
-      "sports",
-      "basketballs"
+        "Dress",
+        "Floral",
+        "Midi"
     ]
-  },
-  {
-    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
+}, {
+    image: 'images/products/dress-4.jpg',
+    name: 'Uncut High Waist Suspender Retro Slit Tie Dress',
     rating: {
-      stars: 4.5,
-      count: 56
+        stars: 5,
+        count: 43
     },
-    priceCents: 799,
-    keywords: [
-      "tshirts",
-      "apparel",
-      "mens"
-    ],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png"
-  },
-  {
-    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
-    image: "images/products/black-2-slot-toaster.jpg",
-    name: "2 Slot Toaster - Black",
+    priceCount: 2599.00
+}, {
+    image: 'images/products/dress-6.jpg',
+    name: 'Teuta Matoshi Cherry Print Flared Dress',
     rating: {
-      stars: 5,
-      count: 2197
+        stars: 4.5,
+        count: 87
     },
-    priceCents: 1899,
-    keywords: [
-      "toaster",
-      "kitchen",
-      "appliances"
-    ]
-  },
-  {
-    id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
-    image: "images/products/6-piece-white-dinner-plate-set.jpg",
-    name: "6 Piece White Dinner Plate Set",
+    priceCount: 1116.00
+}, {
+    image: 'images/products/dress-7.jpg',
+    name: 'Boohoo Slit Ruched Midi Dress ',
     rating: {
-      stars: 4,
-      count: 37
+        stars: 5,
+        count: 190
     },
-    priceCents: 2067,
-    keywords: [
-      "plates",
-      "kitchen",
-      "dining"
-    ]
-  },
-  {
-    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-    image: "images/products/6-piece-non-stick-baking-set.webp",
-    name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
+    priceCount: 4199.00
+}, {
+    image: 'images/products/dress-9.jpg',
+    name: 'The Bebo Urbane Elegant Maroon Midi Dress ',
     rating: {
-      stars: 4.5,
-      count: 175
+        stars: 4,
+        count: 31
     },
-    priceCents: 3499,
-    keywords: [
-      "kitchen",
-      "cookware"
-    ]
-  },
-  {
-    id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
-    image: "images/products/plain-hooded-fleece-sweatshirt-yellow.jpg",
-    name: "Plain Hooded Fleece Sweatshirt",
+    priceCount: 2331.00
+}, {
+    image: 'images/products/dress-10.jpg',
+    name: 'Uncut Spaghetti Strap High Waist Elegant Embriodery',
     rating: {
-      stars: 4.5,
-      count: 317
+        stars: 3.5,
+        count: 59
     },
-    priceCents: 2400,
-    keywords: [
-      "hoodies",
-      "sweaters",
-      "apparel"
-    ]
-  },
-  {
-    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-    image: "images/products/luxury-tower-set-6-piece.jpg",
-    name: "Luxury Towel Set - Graphite Gray",
+    priceCount: 1759.00
+},{
+    image: 'images/products/boots-2.jpg',
+    name: 'Rise Fashion Fuzzy Lace Combat Boots',
     rating: {
-      stars: 4.5,
-      count: 144
+        stars: 5,
+        count: 45
     },
-    priceCents: 3599,
-    keywords: [
-      "bathroom",
-      "washroom",
-      "restroom",
-      "towels",
-      "bath towels"
-    ]
-  },
-  {
-    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
-    image: "images/products/liquid-laundry-detergent-plain.jpg",
-    name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
+    priceCount: 678.00
+}, {
+    image: 'images/products/boots-1.jpg',
+    name: 'Shoe\'N Tale Stretch Suede Chunky Boots',
     rating: {
-      stars: 4.5,
-      count: 305
+        stars: 4,
+        count: 87
     },
-    priceCents: 2899,
-    keywords: [
-      "bathroom",
-      "cleaning"
-    ]
-  },
-  {
-    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
-    image: "images/products/knit-athletic-sneakers-gray.jpg",
-    name: "Waterproof Knit Athletic Sneakers - Gray",
+    priceCount: 950.00
+}, {
+    image: 'images/products/boots-3.jpg',
+    name: 'Express Killer White Boots',
     rating: {
-      stars: 4,
-      count: 89
+        stars: 4.5,
+        count: 45
     },
-    priceCents: 3390,
-    keywords: [
-      "shoes",
-      "running shoes",
-      "footwear"
-    ]
-  },
-  {
-    id: "5968897c-4d27-4872-89f6-5bcb052746d7",
-    image: "images/products/women-chiffon-beachwear-coverup-black.jpg",
-    name: "Women's Chiffon Beachwear Cover Up - Black",
+    priceCount: 1010.00
+}, {
+    image: 'images/products/boots-4.jpg',
+    name: 'Martin Boots',
     rating: {
-      stars: 4.5,
-      count: 235
+        stars: 4,
+        count: 32
     },
-    priceCents: 2070,
-    keywords: [
-      "robe",
-      "swimsuit",
-      "swimming",
-      "bathing",
-      "apparel"
-    ],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png"
-  },
-  {
-    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
-    image: "images/products/round-sunglasses-black.jpg",
-    name: "Round Sunglasses",
+    priceCount: 795.00
+}, {
+    image: 'images/products/boots-6.jpg',
+    name: 'Pubic Desire Burgundy Boots',
     rating: {
-      stars: 4.5,
-      count: 30
+        stars: 4.5,
+        count: 20
     },
-    priceCents: 1560,
-    keywords: [
-      "accessories",
-      "shades"
-    ]
-  },
-  {
-    id: "04701903-bc79-49c6-bc11-1af7e3651358",
-    image: "images/products/women-beach-sandals.jpg",
-    name: "Women's Two Strap Buckle Sandals - Tan",
+    priceCount: 939.00
+}, {
+    image: 'images/products/earrings-1.jpg',
+    name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
     rating: {
-      stars: 4.5,
-      count: 562
+        stars: 4.5,
+        count: 56
     },
-    priceCents: 2499,
-    keywords: [
-      "footwear",
-      "sandals",
-      "womens",
-      "beach",
-      "summer"
-    ]
-  },
-  {
-    id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
-    image: "images/products/blackout-curtain-set-beige.webp",
-    name: "Blackout Curtains Set 4-Pack - Beige",
+    priceCount: 460.00
+}, {
+    image: 'images/products/earrings-2.jpg',
+    name: 'Fida Silver Earrings',
     rating: {
-      stars: 4.5,
-      count: 232
+        stars: 4,
+        count: 41
     },
-    priceCents: 4599,
-    keywords: [
-      "bedroom",
-      "curtains",
-      "home"
-    ]
-  },
-  {
-    id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
-    image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
-    name: "Men's Slim-Fit Summer Shorts",
+    priceCount: 479.00
+}, {
+    image: 'images/products/earrings-7.jpg',
+    name: 'Yellow Chimes Silver Tone Elegant Earrings',
     rating: {
-      stars: 4,
-      count: 160
+        stars: 4,
+        count: 16
     },
-    priceCents: 1699,
-    keywords: [
-      "shorts",
-      "apparel",
-      "mens"
-    ]
-  },
-  {
-    id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
-    image: "images/products/electric-glass-and-steel-hot-water-kettle.webp",
-    name: "Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter",
+    priceCount: 659.00
+}, {
+    image: 'images/products/earrings-9.jpg',
+    name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
     rating: {
-      stars: 5,
-      count: 846
+        stars: 3,
+        count: 6
     },
-    priceCents: 3074,
-    keywords: [
-      "water boiler",
-      "appliances",
-      "kitchen"
-    ]
-  },
-  {
-    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
-    image: "images/products/facial-tissue-2-ply-18-boxes.jpg",
-    name: "Ultra Soft Tissue 2-Ply - 18 Box",
+    priceCount: 567.00
+}, {
+    image: 'images/products/earrings-6.jpg',
+    name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
     rating: {
-      stars: 4,
-      count: 99
+        stars: 3,
+        count: 6
     },
-    priceCents: 2374,
-    keywords: [
-      "kleenex",
-      "tissues",
-      "kitchen",
-      "tissues box",
-      "napkins"
-    ]
-  },
-  {
-    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
-    image: "images/products/straw-sunhat.webp",
-    name: "Straw Lifeguard Sun Hat",
+    priceCount: 567.00
+}, {
+    image: 'images/products/earrings-5.jpg',
+    name: 'Peave Elongated Pear Drop CZ Earrings',
     rating: {
-      stars: 4,
-      count: 215
+        stars: 4.5,
+        count: 38
     },
-    priceCents: 2200,
-    keywords: [
-      "hats",
-      "straw hats",
-      "summer",
-      "apparel"
-    ]
-  },
-  {
-    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
-    image: "images/products/sky-flower-stud-earrings.webp",
-    name: "Sterling Silver Sky Flower Stud Earrings",
+    priceCount: 3606.00
+}, {
+    image: 'images/products/bag-2.jpg',
+    name: 'Ivy Roses Fairycore Cottagecore Princesscore Bag',
     rating: {
-      stars: 4.5,
-      count: 52
+        stars: 4,
+        count: 93
     },
-    priceCents: 1799,
-    keywords: [
-      "jewelry",
-      "accessories",
-      "womens"
-    ]
-  },
-  {
-    id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
-    image: "images/products/women-stretch-popover-hoodie-black.jpg",
-    name: "Women's Stretch Popover Hoodie",
+    priceCount: 1690.00
+}, {
+    image: 'images/products/bag-3.jpg',
+    name: 'Ivy Embroidered Bag',
     rating: {
-      stars: 4.5,
-      count: 2465
+        stars: 3.5,
+        count: 50
     },
-    priceCents: 1374,
-    keywords: [
-      "hooded",
-      "hoodies",
-      "sweaters",
-      "womens",
-      "apparel"
-    ],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png"
-  },
-  {
-    id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
-    image: "images/products/bathroom-rug.jpg",
-    name: "Bathroom Bath Rug Mat 20 x 31 Inch - Grey",
+    priceCount: 830.00
+}, {
+    image: 'images/products/bag-4.jpg',
+    name: 'John Mojie Small Bag with Bow',
     rating: {
-      stars: 4.5,
-      count: 119
+        stars: 4.5,
+        count: 49
     },
-    priceCents: 1250,
-    keywords: [
-      "bathmat",
-      "bathroom",
-      "home"
-    ]
-  },
-  {
-    id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
-    image: "images/products/women-knit-ballet-flat-black.jpg",
-    name: "Women's Knit Ballet Flat",
+    priceCount: 999.00
+}, {
+    image: 'images/products/bag-5.jpg',
+    name: 'Prada Logo-Plaque Mini Bag Black',
     rating: {
-      stars: 4,
-      count: 326
+        stars: 5,
+        count: 102
     },
-    priceCents: 2640,
-    keywords: [
-      "shoes",
-      "flats",
-      "womens",
-      "footwear"
-    ]
-  },
-  {
-    id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
-    image: "images/products/men-golf-polo-t-shirt-blue.jpg",
-    name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
+    priceCount: 10800.00
+}, {
+    image: 'images/products/bag-10.jpg',
+    name: 'Palmetto Bucket Peeples Song Palms',
     rating: {
-      stars: 4.5,
-      count: 2556
+        stars: 4.5,
+        count: 46
     },
-    priceCents: 1599,
-    keywords: [
-      "tshirts",
-      "shirts",
-      "apparel",
-      "mens"
-    ],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png"
-  },
-  {
-    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
-    image: "images/products/trash-can-with-foot-pedal-50-liter.jpg",
-    name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
+    priceCount: 1645.00
+}, {
+    image: 'images/products/bag-7.jpg',
+    name: 'Pinaken Vegan Leather Satchel Bag',
     rating: {
-      stars: 4.5,
-      count: 2286
+        stars: 5,
+        count: 82
     },
-    priceCents: 8300,
-    keywords: [
-      "garbage",
-      "bins",
-      "cans",
-      "kitchen"
-    ]
-  },
-  {
-    id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
-    image: "images/products/duvet-cover-set-blue-twin.jpg",
-    name: "Duvet Cover Set with Zipper Closure",
+    priceCount: 1299.00
+}, {
+    image: 'images/products/combo-6.jpg',
+    name: 'Office Daily Look by Elivn',
     rating: {
-      stars: 4,
-      count: 456
+        stars: 3.5,
+        count: 10
     },
-    priceCents: 2399,
-    keywords: [
-      "bedroom",
-      "bed sheets",
-      "sheets",
-      "covers",
-      "home"
-    ]
-  },
-  {
-    id: "d2785924-743d-49b3-8f03-ec258e640503",
-    image: "images/products/women-chunky-beanie-gray.webp",
-    name: "Women's Chunky Cable Beanie - Gray",
+    priceCount: 5999.00
+}, {
+    image: 'images/products/combo-2.jpg',
+    name: 'Celadon Print Camisole with Vest',
     rating: {
-      stars: 5,
-      count: 83
+        stars: 4.5,
+        count: 15
     },
-    priceCents: 1250,
-    keywords: [
-      "hats",
-      "winter hats",
-      "beanies",
-      "tuques",
-      "apparel",
-      "womens"
-    ]
-  },
-  {
-    id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
-    image: "images/products/men-chino-pants-beige.jpg",
-    name: "Men's Classic-fit Pleated Chino Pants",
+    priceCount: 5429.00
+}, {
+    image: 'images/products/combo-3.jpg',
+    name: 'Office Look by Aerein',
     rating: {
-      stars: 4.5,
-      count: 9017
+        stars: 4.5,
+        count: 40
     },
-    priceCents: 2290,
-    keywords: [
-      "pants",
-      "apparel",
-      "mens"
-    ]
-  },
-  {
-    id: "1c079479-8586-494f-ab53-219325432536",
-    image: "images/products/men-athletic-shoes-green.jpg",
-    name: "Men's Athletic Sneaker",
+    priceCount: 9891.00
+}, {
+    image: 'images/products/combo-4.jpg',
+    name: 'Perfect Date night by Jenna Libman',
     rating: {
-      stars: 4,
-      count: 229
+        stars: 5,
+        count: 59
     },
-    priceCents: 3890,
-    keywords: [
-      "shoes",
-      "running shoes",
-      "footwear",
-      "mens"
-    ]
-  },
-  {
-    id: "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
-    image: "images/products/men-navigator-sunglasses-brown.jpg",
-    name: "Men's Navigator Sunglasses Pilot",
+    priceCount: 6417.00
+}, {
+    image: 'images/products/combo-5.jpg',
+    name: 'Casual Day look by Jenna Libman',
     rating: {
-      stars: 3.5,
-      count: 42
+        stars: 3.5,
+        count: 19
     },
-    priceCents: 1690,
-    keywords: [
-      "sunglasses",
-      "glasses",
-      "accessories",
-      "shades"
-    ]
-  },
-  {
-    id: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
-    image: "images/products/non-stick-cooking-set-15-pieces.webp",
-    name: "Non-Stick Cookware Set, Pots, Pans and Utensils - 15 Pieces",
+    priceCount: 19450.00
+}, {
+    image: 'images/products/combo-9.jpg',
+    name: 'Solo Date look by Glitz Africa ',
     rating: {
-      stars: 4.5,
-      count: 511
+        stars: 5,
+        count: 90
     },
-    priceCents: 6797,
-    keywords: [
-      "cooking set",
-      "kitchen"
-    ]
-  },
-  {
-    id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
-    image: "images/products/vanity-mirror-silver.jpg",
-    name: "Vanity Mirror with Heavy Base - Chrome",
+    priceCount: 5991.00
+}, {
+    image: 'images/products/combo-10.jpg',
+    name: 'Usual day look by Raysaa Corderio',
     rating: {
-      stars: 4.5,
-      count: 130
+        stars: 4.5,
+        count: 71
     },
-    priceCents: 1649,
-    keywords: [
-      "bathroom",
-      "washroom",
-      "mirrors",
-      "home"
-    ]
-  },
-  {
-    id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
-    image: "images/products/women-french-terry-fleece-jogger-camo.jpg",
-    name: "Women's Fleece Jogger Sweatpant",
+    priceCount: 7880.00
+}, {
+    image: 'images/products/heels-1.jpg',
+    name: 'Stuart Heeled Sandal',
     rating: {
-      stars: 4.5,
-      count: 248
+        stars: 4.5,
+        count: 25
     },
-    priceCents: 2400,
-    keywords: [
-      "pants",
-      "sweatpants",
-      "jogging",
-      "apparel",
-      "womens"
-    ]
-  },
-  {
-    id: "d339adf3-e004-4c20-a120-40e8874c66cb",
-    image: "images/products/double-elongated-twist-french-wire-earrings.webp",
-    name: "Double Oval Twist French Wire Earrings - Gold",
+    priceCount: 989.00
+}, {
+    image: 'images/products/heels-2.jpg',
+    name: 'STEVE MADDEN Dream-On Chunky-Heeled Sandals',
     rating: {
-      stars: 4.5,
-      count: 117
+        stars: 4.5,
+        count: 25
     },
-    priceCents: 2400,
-    keywords: [
-      "accessories",
-      "womens"
-    ]
-  },
-  {
-    id: "d37a651a-d501-483b-aae6-a9659b0757a0",
-    image: "images/products/round-airtight-food-storage-containers.jpg",
-    name: "Round Airtight Food Storage Containers - 5 Piece",
+    priceCount: 989.00
+}, {
+    image: 'images/products/heels-3.jpg',
+    name: 'Penrose Bridal Shoes',
     rating: {
-      stars: 4,
-      count: 126
+        stars: 5,
+        count: 113
     },
-    priceCents: 2899,
-    keywords: [
-      "boxes",
-      "food containers",
-      "kitchen"
-    ]
-  },
-  {
-    id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
-    image: "images/products/coffeemaker-with-glass-carafe-black.jpg",
-    name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
+    priceCount: 1770.00
+}, {
+    image: 'images/products/heels-5.jpg',
+    name: 'MissHeel Lace Up Rhinestone High Heel',
     rating: {
-      stars: 4.5,
-      count: 1211
+        stars: 4.5,
+        count: 67
     },
-    priceCents: 2250,
-    keywords: [
-      "coffeemakers",
-      "kitchen",
-      "appliances"
-    ]
-  },
-  {
-    id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
-    image: "images/products/blackout-curtains-black.jpg",
-    name: "Blackout Curtains Set 42 x 84-Inch - Black, 2 Panels",
+    priceCount: 3414.00
+}, {
+    image: 'images/products/heels-7.jpg',
+    name: 'IRUSSH Classic Black Suedette Ankle Wedges Heels',
     rating: {
-      stars: 4.5,
-      count: 363
+        stars: 5,
+        count: 78
     },
-    priceCents: 3099,
-    keywords: [
-      "bedroom",
-      "home"
-    ]
-  },
-  {
-    id: "8a53b080-6d40-4a65-ab26-b24ecf700bce",
-    image: "images/products/cotton-bath-towels-teal.webp",
-    name: "100% Cotton Bath Towels - 2 Pack, Light Teal",
+    priceCount: 5000.00
+}, {
+    image: 'images/products/heels-8.jpg',
+    name: 'YOGAYEBow Pointer Toe High Heels',
     rating: {
-      stars: 4.5,
-      count: 93
+        stars: 4.5,
+        count: 70
     },
-    priceCents: 2110,
-    keywords: [
-      "bathroom",
-      "home",
-      "towels"
-    ]
-  },
-  {
-    id: "10ed8504-57db-433c-b0a3-fc71a35c88a1",
-    image: "images/products/knit-athletic-sneakers-pink.webp",
-    name: "Waterproof Knit Athletic Sneakers - Pink",
+    priceCount: 1838.00
+}, {
+    image: 'images/products/heels-9.jpg',
+    name: 'Women\'s Pearl Ankle Strap High Heels Closed Toe Stiletto D\'or say',
     rating: {
-      stars: 4,
-      count: 89
+        stars: 4,
+        count: 10
     },
-    priceCents: 3390,
-    keywords: [
-      "shoes",
-      "running shoes",
-      "footwear",
-      "womens"
-    ]
-  },
-  {
-    id: "77a845b1-16ed-4eac-bdf9-5b591882113d",
-    image: "images/products/countertop-blender-64-oz.jpg",
-    name: "Countertop Blender - 64oz, 1400 Watts",
+    priceCount: 1806.00
+}, {
+    image: 'images/products/heels-10.jpg',
+    name: 'Swish Sandali Sandali Tacco D1-s83 Nero Donna Heels',
     rating: {
-      stars: 4,
-      count: 3
+        stars: 4.5,
+        count: 74
     },
-    priceCents: 10747,
-    keywords: [
-      "food blenders",
-      "kitchen",
-      "appliances"
-    ]
-  },
-  {
-    id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
-    image: "images/products/floral-mixing-bowl-set.jpg",
-    name: "10-Piece Mixing Bowl Set with Lids - Floral",
+    priceCount: 4999.00
+}, {
+    image: 'images/products/jeans-3.jpg',
+    name: 'Masterly Weft Light Blue Color Jeans',
     rating: {
-      stars: 5,
-      count: 679
+        stars: 3.5,
+        count: 32
     },
-    priceCents: 3899,
-    keywords: [
-      "mixing bowls",
-      "baking",
-      "cookware",
-      "kitchen"
-    ]
-  },
-  {
-    id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
-    image: "images/products/kitchen-paper-towels-30-pack.jpg",
-    name: "2-Ply Kitchen Paper Towels - 30 Pack",
+    priceCount: 670.00
+}, {
+    image: 'images/products/jeans-5.jpg',
+    name: 'Gold DA-Fashion\'s Chic Women\'s Jeans ',
     rating: {
-      stars: 4.5,
-      count: 1045
+        stars: 4,
+        count: 27
     },
-    priceCents: 5799,
-    keywords: [
-      "kitchen",
-      "kitchen towels",
-      "tissues"
-    ]
-  },
-  {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
-    image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
-    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+    priceCount: 681.00
+}, {
+    image: 'images/products/jeans-4.jpg',
+    name: 'High Waist Flared Bell-Bottom Denim Jeans',
     rating: {
-      stars: 4.5,
-      count: 3157
+        stars: 4.5,
+        count: 47
     },
-    priceCents: 2400,
-    keywords: [
-      "sweaters",
-      "hoodies",
-      "apparel",
-      "mens"
-    ]
-  }
-];
+    priceCount: 789.00
+}, {
+    image: 'images/products/jeans-6.jpg',
+    name: 'Bowknot Straight Leg Jeans For Daily Casual',
+    rating: {
+        stars: 4,
+        count: 27
+    },
+    priceCount: 2392.00
+}, {
+    image: 'images/products/jeans-12.jpg',
+    name: ' Straight Wide Leg Jeans Causal Patchwork Denim Pants with Lace',
+    rating: {
+        stars: 3.5,
+        count: 35
+    },
+    priceCount: 3450.00
+}, {
+    image: 'images/products/jeans-7.jpg',
+    name: 'Ann Springs Boot-Leg Blue Jeans',
+    rating: {
+        stars: 4,
+        count: 60
+    },
+    priceCount: 1896.00
+}, {
+    image: 'images/products/tops-1.jpg',
+    name: 'Green Draped Collar Halter Back Metal Decorative Buckle',
+    rating: {
+        stars: 5,
+        count: 36
+    },
+    priceCount: 1580.00
+}, {
+    image: 'images/products/tops-2.jpg',
+    name: 'Gothic Tie-Hem Top – Goth N\' Rock',
+    rating: {
+        stars: 4.5,
+        count: 39
+    },
+    priceCount: 1275.00
+}, {
+    image: 'images/products/tops-4.jpg',
+    name: 'Floerns Front Sqaure Neck Puff Short Sleeve Tie Back',
+    rating: {
+        stars: 4,
+        count: 45
+    },
+    priceCount: 857.00
+}, {
+    image: 'images/products/tops-5.jpg',
+    name: 'Black Off-The-Shoulder Lace Embellishment Shaper Corset',
+    rating: {
+        stars: 4,
+        count: 28
+    },
+    priceCount: 4151.00
+}, {
+    image: 'images/products/tops-6.jpg',
+    name: 'Floerns Front Sqaure Neck Puff Short Sleeve Tie Back',
+    rating: {
+        stars: 4,
+        count: 45
+    },
+    priceCount: 857.00
+}, {
+    image: 'images/products/tops-8.jpg',
+    name: 'White Peplum TOP with Puff Sleeves ',
+    rating: {
+        stars: 4.5,
+        count: 36
+    },
+    priceCount: 1099.00
+},{
+    image: 'images/products/kurti-black.jpg',
+    name: 'Floerns Front Sqaure Neck Puff Short Sleeve Tie Back',
+    rating: {
+        stars: 4,
+        count: 45
+    },
+    priceCount: 857.00
+}, {
+    image: 'images/products/kurti-blue.jpg',
+    name: 'Georgette Embroidered Stitched Sharara',
+    rating: {
+        stars: 4.5,
+        count: 69
+    },
+    priceCount: 6909.00
+},{
+    image: 'images/products/kurti-dark-pink.jpg',
+    name: 'SHISHKALA Georgette Kurta Dupatta Set',
+    rating: {
+        stars: 3.5,
+        count: 53
+    },
+    priceCount: 984.00
+}, {
+    image: 'images/products/kurti-light-blue.jpg',
+    name: ' Floral Anarkali Kurta Palazzo Dupatta Set',
+    rating: {
+        stars: 3.5,
+        count: 30
+    },
+    priceCount: 1771.00
+}, {
+    image: 'images/products/kurti-light-pink.jpg',
+    name: 'Fancy Satin Kurti Set',
+    rating: {
+        stars: 5,
+        count: 61
+    },
+    priceCount: 2063.00
+},{
+    image: 'images/products/kurti-pink.jpg',
+    name: 'Pink Color Organza Thread Work Anarkali',
+    rating: {
+        stars: 4.5,
+        count: 27
+    },
+    priceCount: 2759.00
+}, {
+    image: 'images/products/kurti-white.jpg',
+    name: 'Dusty Yellow Dupion Silk Sharara Set',
+    rating: {
+        stars: 4,
+        count: 40
+    },
+    priceCount: 1708.00
+},{
+    image: 'images/products/necklase-set-1.jpg',
+    name: 'COCIDE Bride Wedding Jewelry Silver Crystal Set Bridal Rhinestone',
+    rating: {
+        stars: 4,
+        count: 91
+    },
+    priceCount: 2602.00
+}, {
+    image: 'images/products/necklase-set-2.jpg',
+    name: 'Rhinestone Choker And Earrings Set',
+    rating: {
+        stars: 4,
+        count: 31
+    },
+    priceCount: 2138.00
+}, {
+    image: 'images/products/necklase-set-3.jpg',
+    name: 'Rhinestone Decor Jewelry Set',
+    rating: {
+        stars: 3.5,
+        count: 17
+    },
+    priceCount: 2404.00
+}, {
+    image: 'images/products/necklase-set-4.jpg',
+    name: 'Yellow Chimes loral Design Classic CZ Stoned Jewellery Set',
+    rating: {
+        stars: 5,
+        count: 9
+    },
+    priceCount: 1930.00
+},{
+    image: 'images/products/necklase-set-5.jpg',
+    name: 'Cathercing Bridal Crystal Rhinestone Vine',
+    rating: {
+        stars: 4.5,
+        count: 64
+    },
+    priceCount: 5206.00
+}, {
+    image: 'images/products/lehanga-1.jpg',
+    name: 'Yellow Floral Print on Organza Lehenga Choli',
+    rating: {
+        stars: 4,
+        count: 55
+    },
+    priceCount: 2759.00
+},{
+    image: 'images/products/lehanga-2.jpg',
+    name: 'Alankrutha Floral White Pink Lehanga with Hand ',
+    rating: {
+        stars: 4,
+        count: 25
+    },
+    priceCount: 10460.00
+},{
+    image: 'images/products/lehanga-3.jpg',
+    name: 'Pink Georgette Sequence Work Lehenga',
+    rating: {
+        stars: 5,
+        count: 43
+    },
+    priceCount: 1599.00
+},{
+    image: 'images/products/pendant-1.jpg',
+    name: 'Minimalist Sun Necklace, Sun Necklace',
+    rating: {
+        stars: 5,
+        count: 43
+    },
+    priceCount: 1150.00
+},{
+    image: 'images/products/pendant-2.jpg',
+    name: 'Silver Phoenix Necklace, Fire Bird Necklace',
+    rating: {
+        stars: 5,
+        count: 56
+    },
+    priceCount: 2783.00
+},{
+    image: 'images/products/pendant-3.jpg',
+    name: 'Rose Swan Necklace Sterlin',
+    rating: {
+        stars: 3.5,
+        count: 25
+    },
+    priceCount: 670.00
+},{
+    image: 'images/products/pendant-5.jpg',
+    name: 'Shining Stars Charm Sterling Silver Delicate Necklace',
+    rating: {
+        stars: 4,
+        count: 33
+    },
+    priceCount: 1150.00
+},{
+    image: 'images/products/pendant-6.jpg',
+    name: 'Purple Opal Sun Necklace',
+    rating: {
+        stars: 5,
+        count: 99
+    },
+    priceCount: 2049.00
+},{
+    image: 'images/products/pendant-9.jpg',
+    name: 'Shining Diva Heart Shaped Blue Ruby Necklace',
+    rating: {
+        stars: 4.5,
+        count: 31
+    },
+    priceCount: 20500.00
+}, {
+    image: 'images/products/rings-1.jpg',
+    name: 'SWEETPEEPS Lined Up Hearts Gold Plated',
+    rating: {
+        stars: 5,
+        count: 16
+    },
+    priceCount: 1783.00
+}, {
+    image: 'images/products/rings-4.jpg',
+    name: 'VSAP Rose Gold Red Rose Flower Ring',
+    rating: {
+        stars: 4.5,
+        count: 89
+    },
+    priceCount: 2817.00
+},{
+    image: 'images/products/rings-5.jpg',
+    name: 'ILURRALDE White Sapphire Crown Rose Gold',
+    rating: {
+        stars: 3.5,
+        count: 58
+    },
+    priceCount: 3476.00
+}, {
+    image: 'images/products/rings-6.jpg',
+    name: 'Enchanted Rose Ring',
+    rating: {
+        stars: 4,
+        count: 50
+    },
+    priceCount: 1887.00
+}, {
+    image: 'images/products/rings-8.jpg',
+    name: 'GALAXY Butterfly Pair Ring ',
+    rating: {
+        stars: 5,
+        count: 120
+    },
+    priceCount: 3580.00
+}, {
+    image: 'images/products/rings-7.jpg',
+    name: 'ASTRAY Leafy Ring',
+    rating: {
+        stars: 4,
+        count: 62
+    },
+    priceCount: 2997.00
+},{
+    image: 'images/products/rings-10.jpg',
+    name: 'BlueStone The Jasiel Ring',
+    rating: {
+        stars: 4.5,
+        count: 81
+    },
+    priceCount: 67482.00
+},{
+    image: 'images/products/saree-black.jpg',
+    name: 'Handloom Tussar saree in Grey color',
+    rating: {
+        stars: 4.5,
+        count: 12
+    },
+    priceCount: 6300.00
+},{
+    image: 'images/products/saree-peach.jpg',
+    name: 'Kalista Sequinned Organza Saree',
+    rating: {
+        stars: 4,
+        count: 17
+    },
+    priceCount: 7440.00
+},{
+    image: 'images/products/saree-white.jpg',
+    name: 'Miranda House White Embroidered Georgette Saree',
+    rating: {
+        stars: 5,
+        count: 72
+    },
+    priceCount: 5500.00
+}, {
+    image: 'images/products/saree-gliter.jpg',
+    name: 'Bharodiya Enterprises Chikankaari Saree',
+    rating: {
+        stars: 4,
+        count: 48
+    },
+    priceCount: 7785.00
+},{
+    image: 'images/products/saree-maroon.jpg',
+    name: 'Butani Export Solid Maroon Saree',
+    rating: {
+        stars: 4.5,
+        count: 100
+    },
+    priceCount: 3499.00
+},{
+    image: 'images/products/skirts-1.jpg',
+    name: 'Berrylush Black Floral Printed A-line Side Slit Maxi Skirt',
+    rating: {
+        stars: 4,
+        count: 45
+    },
+    priceCount: 556.00
+}, {
+    image: 'images/products/skirts-2.jpg',
+    name: 'Y&D Denim Mini Skirt',
+    rating: {
+        stars: 3.5,
+        count: 76
+    },
+    priceCount: 509.00
+},{
+    image: 'images/products/skirts-3.jpg',
+    name: 'Galz Corner Light Blue A-line Denim Skirt',
+    rating: {
+        stars: 5,
+        count: 82
+    },
+    priceCount: 699.00
+}, {
+    image: 'images/products/skirts-4.jpg',
+    name: 'Galz Corner Blue A-line Denim Skirt',
+    rating: {
+        stars: 4.5,
+        count: 76
+    },
+    priceCount: 648.00
+}, {
+    image: 'images/products/skirts-5.jpg',
+    name: 'Tokyo Talkies Beige A-line Skirt',
+    rating: {
+        stars: 5,
+        count: 98
+    },
+    priceCount: 719.00
+}, {
+    image: 'images/products/skirts-6.jpg',
+    name: 'Preppy Style Summer Mini Skirt',
+    rating: {
+        stars: 4,
+        count: 63
+    },
+    priceCount: 828.00
+},{
+    image: 'images/products/skirts-7.jpg',
+    name: 'AISWI Satin High Waist Midi Silk Swing Skirt',
+    rating: {
+        stars: 5,
+        count: 8
+    },
+    priceCount: 6840.00
+}, {
+    image: 'images/products/skirts-10.jpg',
+    name: 'Mast & Harbour Red & White Floral Print Midi Skirt',
+    rating: {
+        stars: 4.5,
+        count: 69
+    },
+    priceCount: 999.00
+},{
+    image: 'images/products/sneakers-1.jpg',
+    name: 'Vulcanize Black White Platform Thick Sole Running Casual Shoe ',
+    rating: {
+        stars: 4.5,
+        count: 40
+    },
+    priceCount: 3329.00
+},{
+    image: 'images/products/sneakers-3.jpg',
+    name: 'Black Pink Adidas Galaxy 6 Shoes ',
+    rating: {
+        stars: 4.5,
+        count: 40
+    },
+    priceCount: 4199.00
+},{
+    image: 'images/products/sneakers-5.jpg',
+    name: 'FLAGELI White Leather Platform Sneakers',
+    rating: {
+        stars: 4,
+        count: 76
+    },
+    priceCount: 1999.00
+},{
+    image: 'images/products/sneakers-4.jpg',
+    name: 'Cruiser Chunky Sneaker for Bold & Stylish Women',
+    rating: {
+        stars: 4,
+        count: 214
+    },
+    priceCount: 999.00
+}];
