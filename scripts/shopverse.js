@@ -119,7 +119,7 @@ const products = [{
     },
     priceCount: 659.00
 }, {
-    image: 'images/products/earrings-.jpg',
+    image: 'images/products/earrings-9.jpg',
     name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
     rating: {
         stars: 3,
