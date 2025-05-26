@@ -15,7 +15,178 @@ export const products = [{
         "Mini Skirt",
         "Raysaa Corderio"
     ]
-}, {
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-aline-1.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-aline-2.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-midi-1.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-midi-2.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-midi-3.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-mini-1.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-mini-2.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-mini-3.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-mini-4.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
     id: "8a1e2b88-758f-4d1c-9fc4-13f836d9b2f2",
     image: 'images/products/dress-3.jpg',
     name: 'BENDISTAR BUTIK White Floral Midi Slit Dress',
@@ -68,6 +239,63 @@ export const products = [{
         "Fruit Pattern"
     ]
 }, {
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-aline-3.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-aline-4.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
+    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    image: 'images/products/black-aline-5.jpg',
+    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    rating: {
+        stars: 4,
+        count: 18
+    },
+    priceCount: 1260.00,
+    keywords: [
+        "Dress",
+        "Belle",
+        "Elegant",
+        "Black",
+        "Off Shoulder",
+        "Patchwork",
+        "Lace",
+        "Women's Clothing"
+    ]
+},{
     id: "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
     image: 'images/products/dress-7.jpg',
     name: 'Boohoo Slit Ruched Midi Dress ',
