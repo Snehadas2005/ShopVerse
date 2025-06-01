@@ -63,13 +63,13 @@ function updateCartQuantity() {
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 
-let addedMessageTimeoutId;
+const addedMessageTimeouts = {};
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
         
-        const quantity = addToCart(productId);
+        addToCart(productId);
         
         updateCartQuantity();
         
@@ -80,15 +80,15 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         if (addedMessage) {
             addedMessage.classList.add('added-to-cart-visible');
 
-            if (addedMessageTimeoutId) {
-                clearTimeout(addedMessageTimeoutId);
+            if (addedMessageTimeouts[productId]) {
+                clearTimeout(addedMessageTimeouts[productId]);
             }
 
-            const timeoutId = setTimeout(() => {
+            addedMessageTimeouts[productId] = setTimeout(() => {
                 addedMessage.classList.remove('added-to-cart-visible');
-            }, 2000);
 
-            addedMessageTimeoutId = timeoutId;
+                delete addedMessageTimeouts[productId];
+            }, 2000);
         }
     });
 });

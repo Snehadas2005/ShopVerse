@@ -1,4 +1,5 @@
-export const products = [{
+export const products = [
+{   
     id: "2f6e2c2e-5828-4a54-b9e3-4c0be0138253",
     image: 'images/products/dress-1.jpg',
     name: 'Raysaa Corderio Vintage Corset Crop Top with Mini Dobby Skirt',
@@ -16,175 +17,166 @@ export const products = [{
         "Raysaa Corderio"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
     image: 'images/products/black-aline-1.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Luxe Noir A-Line Sweetheart Evening Gown',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 4.5,
+        count: 67
     },
-    priceCount: 1260.00,
+    priceCount: 2890.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "A-Line",
+        "Evening Gown",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Sweetheart",
+        "Formal",
+        "Elegant"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7",
     image: 'images/products/black-aline-2.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Onyx Princess Floor Length Gown',
     rating: {
         stars: 4,
-        count: 18
+        count: 89
     },
-    priceCount: 1260.00,
+    priceCount: 3200.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Ball Gown",
+        "Strapless",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Formal",
+        "Evening Wear",
+        "Grace"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8",
     image: 'images/products/black-midi-1.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Bella Notte Midi Cocktail Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 3.5,
+        count: 42
     },
-    priceCount: 1260.00,
+    priceCount: 1850.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Midi",
+        "Cocktail",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Party Wear",
+        "Bella",
+        "Semi-Formal"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9",
     image: 'images/products/black-midi-2.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Velvet Rose Midi Wrap Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 4.5,
+        count: 156
     },
-    priceCount: 1260.00,
+    priceCount: 2100.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Midi",
+        "Wrap",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Velvet",
+        "Rose",
+        "Elegant"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0",
     image: 'images/products/black-midi-3.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Obsidian Dreams Asymmetric Midi',
     rating: {
         stars: 4,
-        count: 18
+        count: 73
     },
-    priceCount: 1260.00,
+    priceCount: 1650.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Midi",
+        "Asymmetric",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Modern",
+        "Dreams",
+        "Contemporary"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1",
     image: 'images/products/black-mini-1.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Raven Mini Corset Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 5,
+        count: 234
     },
-    priceCount: 1260.00,
+    priceCount: 980.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Mini",
+        "Corset",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Tight Fit",
+        "Raven",
+        "Club Wear"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
     image: 'images/products/black-mini-2.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Shadow Play Ruched Mini Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 3.5,
+        count: 91
     },
-    priceCount: 1260.00,
+    priceCount: 1320.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Mini",
+        "Ruched",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Shadow",
+        "Party",
+        "Textured"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
     image: 'images/products/black-mini-3.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Noir Chic Pleated Mini',
     rating: {
         stars: 4,
-        count: 18
+        count: 128
     },
-    priceCount: 1260.00,
+    priceCount: 1450.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Mini",
+        "Pleated",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Noir",
+        "Chic",
+        "Fashion Forward"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
     image: 'images/products/black-mini-4.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Eclipse Satin Mini Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 4.5,
+        count: 203
     },
-    priceCount: 1260.00,
+    priceCount: 1799.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Mini",
+        "Satin",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Eclipse",
+        "Luxurious",
+        "Smooth Finish"
     ]
 },{
     id: "8a1e2b88-758f-4d1c-9fc4-13f836d9b2f2",
@@ -239,61 +231,58 @@ export const products = [{
         "Fruit Pattern"
     ]
 }, {
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5",
     image: 'images/products/black-aline-3.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Ethereal Black Tulle Evening Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 4.5,
+        count: 112
     },
-    priceCount: 1260.00,
+    priceCount: 2750.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Evening",
+        "Tulle",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Ethereal",
+        "Formal",
+        "Layered"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6",
     image: 'images/products/black-aline-4.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Midnight Grace Strapless Ball Gown',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 5,
+        count: 345
     },
-    priceCount: 1260.00,
+    priceCount: 4200.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "Floor Length",
+        "Gown",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Onyx",
+        "Princess",
+        "Formal"
     ]
 },{
-    id: "b3l5e9g2-f7d1-e5c8-a4b2-p9r6o2d1u7c9",
+    id: "l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7",
     image: 'images/products/black-aline-5.jpg',
-    name: 'Belle Elegant Black Off Shoulder Patchwork Lace Flutter',
+    name: 'Starlight Sequin A-Line Dress',
     rating: {
-        stars: 4,
-        count: 18
+        stars: 3.5,
+        count: 78
     },
-    priceCount: 1260.00,
+    priceCount: 1980.00,
     keywords: [
         "Dress",
-        "Belle",
-        "Elegant",
+        "A-Line",
+        "Sequin",
         "Black",
-        "Off Shoulder",
-        "Patchwork",
-        "Lace",
-        "Women's Clothing"
+        "Starlight",
+        "Sparkly",
+        "Party Wear"
     ]
 },{
     id: "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
@@ -346,7 +335,7 @@ export const products = [{
         "Embroidery",
         "Uncut"
     ]
-},{
+},,{
     id: "q1w2e3r4-t5y6-u7i8-o9p0-a1s2d3f4g5h6",
     image: 'images/products/boots-2.jpg',
     name: 'Rise Fashion Fuzzy Lace Combat Boots',
@@ -1823,3 +1812,4 @@ export const products = [{
         "Women"
     ]
 }];
+
