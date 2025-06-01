@@ -7,7 +7,7 @@ export function addToCart(productId) {
         if (productId === cartItem.productId) {
             matchingItem = cartItem;
         }
-    });
+    }); 
 
     const quantitySelector = document.querySelector(
         `.js-quantity-selector-${productId}`
