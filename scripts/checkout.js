@@ -11,7 +11,6 @@ cart.forEach((cartItem) => {
     product && product.id === productId
   );
 
-
   cartSummaryHTML += `
     <div class="cart-item-container
       js-cart-item-container-${matchingProduct.id}">
@@ -115,14 +114,13 @@ document.querySelectorAll('.js-delete-link')
     });
   });
 
+
 function updateCartQuantity() {
   const cartQuantity = calculateCartQuantity();
 
-  console.log('Cart Quantity:', cartQuantity);
-
-
   document.querySelector('.js-return-to-home-link')
-    .innerHTML = `${cartQuantity} items`;
+    .innerHTML = `${cartQuantity} products`;
+
 }
 
 updateCartQuantity();
@@ -134,3 +132,4 @@ document.querySelectorAll('.js-update-link')
       console.log(productId);
     });
   });
+

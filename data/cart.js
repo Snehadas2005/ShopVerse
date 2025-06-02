@@ -1,4 +1,6 @@
-//import { resetCart } from '../data/cart.js';  //USE IT ONLY WHEN THE CHECKOUT PAGE ISN'T WORKING 
+//import { resetCart } from '../data/cart.js'; 
+
+// removecart(); //USE IT ONLY WHEN THE CHECKOUT PAGE ISN'T WORKING 
 
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
