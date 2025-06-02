@@ -2,7 +2,8 @@ import {
   cart,
   removeFromCart,
   calculateCartQuantity,
-  updateQuantity
+  updateQuantity,
+  updateDeliveryOption
 } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
@@ -79,16 +80,20 @@ function deliveryOptionsHTML (matchingProduct, cartItem) {
     const dateString = deliveryDate.format('dddd, D MMM');
     const priceString = deliveryOption.priceCount === 0 
       ? 'FREE'
-      : `₹${deliveryOption.priceCount} ->`;
+      : `₹${deliveryOption.priceCount} `;
 
     const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
     html += `
-      <div class="delivery-option">
+      <div class="delivery-option js-delivery-option"
+        data-product-id = "${matchingProduct.id}"
+        data-delivery-option-id = "${deliveryOption.id}">
         <input type="radio"
           ${isChecked ? 'checked' : ''}
           class="delivery-option-input"
-          name="delivery-option-${matchingProduct.id}">
+          name="delivery-option-${matchingProduct.id}"
+          value = "${deliveryOption.id}"
+          data-product-id = "${matchingProduct.id}">
         <div>
           <div class="delivery-option-date">
             ${dateString}
@@ -166,3 +171,24 @@ function handleUpdateQuantity(productId, inputElement) {
   const container = document.querySelector(`.js-cart-item-container-${productId}`);
   container.classList.remove('is-editing-quantity');
 }
+
+document.querySelectorAll('.delivery-option-input').forEach((input) => {
+  input.addEventListener('click', () => {
+    const productId = input.dataset.productId;
+    const deliveryOptionId = input.value;
+
+    const matchingItem = cart.find((item) => item.productId === productId);
+    if (matchingItem) {
+      matchingItem.deliveryOptionId = deliveryOptionId;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  });
+});
+
+document.querySelectorAll('.js-delivery-option')
+.forEach ((element) => {
+  element.addEventListener('click', () => {
+    const {productId, deliveryOptionId} = element.dataset;
+    updateDeliveryOption(productId, deliveryOptionId);
+  })
+});
