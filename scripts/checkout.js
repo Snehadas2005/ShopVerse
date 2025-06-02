@@ -1,22 +1,16 @@
-// Optional: notice we can write imports on multiple
-// lines so the line doesn't get too long.
 import {cart, removeFromCart,
   calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
-import {formatCurrency} from './utils/money.js';
 
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
 
-  let matchingProduct;
+  let matchingProduct = products.find((product) =>
+    product && product.id === productId
+  );
 
-  products.forEach((product) => {
-    if (product.id === productId) {
-      matchingProduct = product;
-    }
-  });
 
   cartSummaryHTML += `
     <div class="cart-item-container
@@ -34,7 +28,7 @@ cart.forEach((cartItem) => {
             ${matchingProduct.name}
           </div>
           <div class="product-price">
-            $${formatCurrency(matchingProduct.priceCents)}
+            ₹${matchingProduct.priceCount}
           </div>
           <div class="product-quantity">
             <span>
@@ -45,7 +39,9 @@ cart.forEach((cartItem) => {
               Update
             </span>
             <input class="quantity-input">
-            <span class="save-quantity-link link-primary">Save</span>
+            <span class="update-quantity-link link-primary js-update-link"
+              data-product-id="${matchingProduct.id}">
+            </span>
             <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
               Delete
             </span>
@@ -78,7 +74,7 @@ cart.forEach((cartItem) => {
                 Wednesday, June 15
               </div>
               <div class="delivery-option-price">
-                $4.99 - Shipping
+                ₹50 - Shipping
               </div>
             </div>
           </div>
@@ -91,7 +87,7 @@ cart.forEach((cartItem) => {
                 Monday, June 13
               </div>
               <div class="delivery-option-price">
-                $9.99 - Shipping
+                ₹100 - Shipping
               </div>
             </div>
           </div>
@@ -122,6 +118,9 @@ document.querySelectorAll('.js-delete-link')
 function updateCartQuantity() {
   const cartQuantity = calculateCartQuantity();
 
+  console.log('Cart Quantity:', cartQuantity);
+
+
   document.querySelector('.js-return-to-home-link')
     .innerHTML = `${cartQuantity} items`;
 }
@@ -132,10 +131,6 @@ document.querySelectorAll('.js-update-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
       const productId = link.dataset.productId;
-
-      const container = document.querySelector(
-        `.js-cart-item-container-${productId}`
-      );
-      container.classList.add('is-editing-quantity');
+      console.log(productId);
     });
   });
