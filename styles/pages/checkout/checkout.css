@@ -232,7 +232,7 @@
 .empty-cart-title {
   font-size: 28px;
   font-weight: 700;
-  color: #cd2020;
+  color: #1d1c1c;
   margin-bottom: 40px;
   letter-spacing: 1px;
 }
@@ -261,7 +261,7 @@
   background-color: #a31c1c;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(77, 75, 75, 0.2);
+  box-shadow: 0 4px 8px rgba(107, 105, 104, 0.2);
 }
 
 @media (max-width: 600px) {
