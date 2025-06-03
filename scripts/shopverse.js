@@ -1,9 +1,6 @@
 import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import { products } from '../data/products.js';
 
-// Remove the Three.js import since we're using CDN
-// THREE is now available globally
-
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -55,24 +52,21 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-// Three.js Setup for Background Animation
 let scene, camera, renderer, particles;
 let animationEnabled = false;
 
 function initThreeJS() {
-    // Check if THREE is available
     if (typeof THREE === 'undefined') {
         console.error('Three.js not loaded. Make sure to include the CDN script.');
         return;
     }
 
-    // Scene setup
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Transparent background
+    renderer.setClearColor(0x000000, 0); 
     renderer.domElement.style.position = 'fixed';
     renderer.domElement.style.top = '0';
     renderer.domElement.style.left = '0';
@@ -81,20 +75,18 @@ function initThreeJS() {
     
     document.body.appendChild(renderer.domElement);
 
-    // Create floating particles
     const particleCount = 50;
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     
     for (let i = 0; i < particleCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 20;     // x
-        positions[i + 1] = (Math.random() - 0.5) * 20; // y
-        positions[i + 2] = (Math.random() - 0.5) * 20; // z
+        positions[i] = (Math.random() - 0.5) * 20;     
+        positions[i + 1] = (Math.random() - 0.5) * 20; 
+        positions[i + 2] = (Math.random() - 0.5) * 20; 
         
-        // Pink/red color palette to match your theme
-        colors[i] = Math.random() * 0.5 + 0.5;     // r
-        colors[i + 1] = Math.random() * 0.3;       // g
-        colors[i + 2] = Math.random() * 0.3 + 0.2; // b
+        colors[i] = Math.random() * 0.5 + 0.5;     
+        colors[i + 1] = Math.random() * 0.3;       
+        colors[i + 2] = Math.random() * 0.3 + 0.2; 
     }
     
     const geometry = new THREE.BufferGeometry();
@@ -121,12 +113,10 @@ function animateThreeJS() {
     
     requestAnimationFrame(animateThreeJS);
     
-    // Rotate particles slowly
     if (particles) {
         particles.rotation.x += 0.001;
         particles.rotation.y += 0.002;
         
-        // Move particles based on scroll
         const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
         particles.position.y = scrollPercent * 2;
     }
@@ -134,18 +124,15 @@ function animateThreeJS() {
     renderer.render(scene, camera);
 }
 
-// Scroll Animation Setup
 function initScrollAnimation() {
     const productContainers = document.querySelectorAll('.product-animate');
     
-    // Set initial state for all products
     productContainers.forEach((container, index) => {
         container.style.opacity = '0';
         container.style.transform = 'translateY(50px) scale(0.9)';
         container.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
     });
     
-    // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -153,10 +140,8 @@ function initScrollAnimation() {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0) scale(1)';
                     
-                    // Add a subtle glow effect
                     entry.target.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.3)';
                     
-                    // Enable Three.js animation when first product is visible
                     if (!animationEnabled) {
                         animationEnabled = true;
                         animateThreeJS();
@@ -176,7 +161,6 @@ function initScrollAnimation() {
     });
 }
 
-// Enhanced hover effects
 function addEnhancedHoverEffects() {
     const productContainers = document.querySelectorAll('.product-container');
     
@@ -192,6 +176,25 @@ function addEnhancedHoverEffects() {
             container.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.2)';
         });
     });
+}
+
+function initHeaderScroll() {
+    const header = document.querySelector('.shopverse-header');
+    let lastScrollY = window.scrollY;
+    
+    function handleScroll() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollY = currentScrollY;
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 function updateCartQuantity() {
@@ -227,7 +230,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
             }, 2000);
         }
         
-        // Add click animation
         button.style.transform = 'scale(0.95)';
         setTimeout(() => {
             button.style.transform = 'scale(1)';
@@ -235,7 +237,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     });
 });
 
-// Handle window resize for Three.js
 function handleResize() {
     if (camera && renderer) {
         camera.aspect = window.innerWidth / window.innerHeight;
@@ -246,15 +247,14 @@ function handleResize() {
 
 window.addEventListener('resize', handleResize);
 
-// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing...');
     initThreeJS();
     initScrollAnimation();
     addEnhancedHoverEffects();
+    initHeaderScroll(); 
 });
 
-// Cleanup on page unload
 window.addEventListener('beforeunload', () => {
     if (renderer && renderer.domElement && renderer.domElement.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
