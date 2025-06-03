@@ -205,3 +205,90 @@
 .is-editing-quantity .update-quantity-link {
   display: none;
 }
+
+/* Empty Cart Styles - Add this to your checkout.css file */
+
+.empty-cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.empty-cart-icon {
+  margin-bottom: 30px;
+  opacity: 0.7;
+}
+
+.empty-cart-image {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.empty-cart-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #cd2020;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.empty-cart-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.continue-shopping-btn {
+  background-color: transparent;
+  border: 2px solid #a31c1c;
+  color: #cb3030;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.continue-shopping-btn:hover {
+  background-color: #a31c1c;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(77, 75, 75, 0.2);
+}
+
+@media (max-width: 600px) {
+  .empty-cart-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .empty-cart-buttons {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .continue-shopping-btn,
+  .login-cart-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+  
+  .empty-cart-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.empty-cart-container ~ .checkout-grid {
+  display: none;
+}

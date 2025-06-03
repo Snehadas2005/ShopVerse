@@ -6,9 +6,10 @@ import {
   updateDeliveryOption
 } from '../../data/cart.js';
 import { products } from '../../data/products.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions, calculateDeliveryDate } from '../../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { checkForEmptyCart } from '../checkout.js';
 
 
 export function renderOrderSummary() {
@@ -27,6 +28,7 @@ export function renderOrderSummary() {
     const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
     const dateString = deliveryDate.format('dddd, D MMM');
+    
 
     cartSummaryHTML += `
       <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -126,6 +128,8 @@ export function renderOrderSummary() {
       updateCartQuantity();
 
       renderPaymentSummary();
+
+      checkForEmptyCart();
     });
   });
 
