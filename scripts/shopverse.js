@@ -1,12 +1,14 @@
 import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import { products } from '../data/products.js';
 
+// Remove the Three.js import since we're using CDN
+// THREE is now available globally
 
 let productsHTML = '';
 
 products.forEach((product) => {
     productsHTML += `
-        <div class="product-container">
+        <div class="product-container product-animate" data-product-id="${product.id}">
             <div class="product-image-container">
                 <img class="product-image"
                 src="${product.image}">
@@ -53,9 +55,147 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+// Three.js Setup for Background Animation
+let scene, camera, renderer, particles;
+let animationEnabled = false;
+
+function initThreeJS() {
+    // Check if THREE is available
+    if (typeof THREE === 'undefined') {
+        console.error('Three.js not loaded. Make sure to include the CDN script.');
+        return;
+    }
+
+    // Scene setup
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0); // Transparent background
+    renderer.domElement.style.position = 'fixed';
+    renderer.domElement.style.top = '0';
+    renderer.domElement.style.left = '0';
+    renderer.domElement.style.zIndex = '-1';
+    renderer.domElement.style.pointerEvents = 'none';
+    
+    document.body.appendChild(renderer.domElement);
+
+    // Create floating particles
+    const particleCount = 50;
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+    
+    for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 20;     // x
+        positions[i + 1] = (Math.random() - 0.5) * 20; // y
+        positions[i + 2] = (Math.random() - 0.5) * 20; // z
+        
+        // Pink/red color palette to match your theme
+        colors[i] = Math.random() * 0.5 + 0.5;     // r
+        colors[i + 1] = Math.random() * 0.3;       // g
+        colors[i + 2] = Math.random() * 0.3 + 0.2; // b
+    }
+    
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    
+    const material = new THREE.PointsMaterial({
+        size: 0.1,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.6
+    });
+    
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    
+    camera.position.z = 5;
+    
+    console.log('Three.js initialized successfully!');
+}
+
+function animateThreeJS() {
+    if (!animationEnabled || !renderer) return;
+    
+    requestAnimationFrame(animateThreeJS);
+    
+    // Rotate particles slowly
+    if (particles) {
+        particles.rotation.x += 0.001;
+        particles.rotation.y += 0.002;
+        
+        // Move particles based on scroll
+        const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+        particles.position.y = scrollPercent * 2;
+    }
+    
+    renderer.render(scene, camera);
+}
+
+// Scroll Animation Setup
+function initScrollAnimation() {
+    const productContainers = document.querySelectorAll('.product-animate');
+    
+    // Set initial state for all products
+    productContainers.forEach((container, index) => {
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(50px) scale(0.9)';
+        container.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
+    });
+    
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    
+                    // Add a subtle glow effect
+                    entry.target.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.3)';
+                    
+                    // Enable Three.js animation when first product is visible
+                    if (!animationEnabled) {
+                        animationEnabled = true;
+                        animateThreeJS();
+                        console.log('Three.js animation started!');
+                    }
+                }
+            });
+        },
+        { 
+            threshold: 0.1,
+            rootMargin: '50px'
+        }
+    );
+    
+    productContainers.forEach((container) => {
+        observer.observe(container);
+    });
+}
+
+// Enhanced hover effects
+function addEnhancedHoverEffects() {
+    const productContainers = document.querySelectorAll('.product-container');
+    
+    productContainers.forEach((container) => {
+        container.addEventListener('mouseenter', () => {
+            container.style.transform = 'translateY(-10px) scale(1.02)';
+            container.style.boxShadow = '0 20px 40px rgba(255, 192, 203, 0.4)';
+            container.style.transition = 'all 0.3s ease';
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            container.style.transform = 'translateY(0) scale(1)';
+            container.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.2)';
+        });
+    });
+}
+
 function updateCartQuantity() {
     const cartQuantity = calculateCartQuantity();
-
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 
@@ -68,7 +208,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         const productId = button.dataset.productId;
         
         addToCart(productId);
-        
         updateCartQuantity();
         
         const addedMessage = document.querySelector(
@@ -84,9 +223,40 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
 
             addedMessageTimeouts[productId] = setTimeout(() => {
                 addedMessage.classList.remove('added-to-cart-visible');
-
                 delete addedMessageTimeouts[productId];
             }, 2000);
         }
+        
+        // Add click animation
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 150);
     });
+});
+
+// Handle window resize for Three.js
+function handleResize() {
+    if (camera && renderer) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+}
+
+window.addEventListener('resize', handleResize);
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing...');
+    initThreeJS();
+    initScrollAnimation();
+    addEnhancedHoverEffects();
+});
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    if (renderer && renderer.domElement && renderer.domElement.parentNode) {
+        renderer.domElement.parentNode.removeChild(renderer.domElement);
+    }
 });
