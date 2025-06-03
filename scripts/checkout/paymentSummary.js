@@ -5,10 +5,12 @@ import { getProduct } from "../../data/products.js";
 export function renderPaymentSummary() {
     let productPriceCount = 0;
     let shippingPriceCount = 0;
+    let totalQuantity = 0;
 
     cart.forEach((cartItem) => {
         const product = getProduct(cartItem.productId);
         productPriceCount += product.priceCount * cartItem.quantity;
+        totalQuantity += cartItem.quantity;
 
         const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);        
         shippingPriceCount += deliveryOption.priceCount;
@@ -23,7 +25,7 @@ export function renderPaymentSummary() {
         </div>
 
         <div class="payment-summary-row">
-            <div>Items (2):</div>
+            <div>Items (${totalQuantity}):</div>
             <div class="payment-summary-money">
                 ₹${productPriceCount}
             </div>
