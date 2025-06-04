@@ -16,11 +16,11 @@
 body {
   font-family: 'Times New Roman', Times, serif;
   color: rgb(0, 0, 0);
-  /* The <body> element has a default margin of 8px
-     on all sides. This removes the default margins. */
   margin: 0;
-  background-color: rgb(255, 243, 243);
+  background: linear-gradient(135deg, rgb(255, 231, 231) 0%, rgb(251, 220, 220) 100%);
+  overflow-x: hidden;
 }
+
 
 .page-title {
   font-weight: 700;
@@ -36,7 +36,7 @@ body {
 }
 
 .order-header {
-  background-color: rgb(255, 215, 215);
+  background-color: rgb(255, 187, 187);
   border: 1px solid rgb(255, 171, 171);
 
   display: flex;
@@ -97,7 +97,8 @@ body {
 
 .order-details-grid {
   padding: 40px 25px;
-  border: 1px solid rgb(255, 171, 171);
+  border: 1px solid rgb(255, 146, 146);
+  background-color: rgb(253, 238, 238);
   border-top: none;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
