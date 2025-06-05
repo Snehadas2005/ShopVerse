@@ -209,8 +209,11 @@ const addedMessageTimeouts = {};
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
+
+        const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
+        const selectedQuantity = parseInt(quantitySelector.value);
         
-        addToCart(productId);
+        addToCart(productId, selectedQuantity);
         updateCartQuantity();
         
         const addedMessage = document.querySelector(

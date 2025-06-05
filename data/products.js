@@ -504,12 +504,12 @@ export const products = [
 }, {
     id: 'l2p1o0i9-u8y7-t6r5-e4w3-q2a1s0d9f8g7',
     image: 'images/products/earrings-6.jpg',
-    name: 'Abaan Gallery Sparkling Crystal Studded Silver Earrings',
+    name: 'Semphore Sparkling Crystal Butterfly Silver Earrings',
     rating: {
-        stars: 3,
-        count: 6
+        stars: 4.5,
+        count: 64
     },
-    priceCount: 567.00,
+    priceCount: 780.00,
     keywords: [
         "Earrings",
         "Silver",
