@@ -21,6 +21,24 @@ function loadThreeJS() {
     });
 }
 
+function loadProductsAsync() {
+    return new Promise((resolve) => {
+        loadProducts(() => {
+            resolve();
+        });
+    });
+}
+
+async function loadPage() {
+    console.log('load page');
+    try {
+        await loadProductsAsync();
+        console.log('Products loaded successfully');
+    } catch (error) {
+        console.error('Failed to load products:', error);
+    }
+}
+
 function renderEmptyCart() {
     const mainElement = document.querySelector('.main');
     mainElement.innerHTML = `
@@ -122,33 +140,18 @@ export function checkForEmptyCart() {
     }
 }
 
-new Promise((resolve) => {
-    loadProducts(() => {
-        resolve();
-    });
-}).then(() => {
-    const initialize = () => {
-        initializeCheckout();
-    };
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initialize);
-    } else {
-        initialize();
+async function initialize() {
+    try {
+        await loadPage();
+        await initializeCheckout();
+    } catch (error) {
+        console.error('Initialization failed:', error);
+        await initializeCheckout();
     }
-});
+}
 
-//this is a simple call back function, before heading to promise headed to callback
-/*
-loadProducts(() => {
-    const initialize = () => {
-        initializeCheckout();
-    };
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initialize);
-    } else {
-        initialize();
-    }
-});
-*/
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+} else {
+    initialize();
+}
