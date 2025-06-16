@@ -224,7 +224,17 @@ class UniversalEffects {
                 element.style.transform = 'translateY(0) scale(1)';
                 element.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.2)';
             });
+            element.addEventListener('mouseenter', () => {
+                element.style.transform = 'translateY(-10px) scale(1.02)';
+                element.style.boxShadow = '0 20px 40px rgba(255, 192, 203, 0.4)';
+                element.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+                Array.from(element.children).forEach((child) => {
+                    child.style.transform = 'none';
+                });
+            });
         });
+
     }
 
     addButtonEffects(selectors = []) {

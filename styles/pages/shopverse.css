@@ -85,7 +85,7 @@ body {
   border-bottom: 1px solid rgb(231, 231, 231);
   display: flex;
   flex-direction: column;
-  background: rgb(255, 237, 237);
+  background: rgb(253, 233, 233);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -132,9 +132,6 @@ body {
   backface-visibility: hidden;
 }
 
-.product-container:hover .product-image {
-  transform: scale(1.05);
-}
 
 .product-name {
   height: 40px;
