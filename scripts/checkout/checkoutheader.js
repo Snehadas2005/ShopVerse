@@ -12,7 +12,7 @@ export function renderCheckoutHeader() {
         <div class="checkout-header">
             <div class="header-content">
                 <div class="checkout-hhttps://www.learncbse.in/ncert-solutions-for-class-8-english-honeydew-bepin-choudhurys-lapse-of-memory/#google_vignetteeader-left-section">
-                <a href="shopverse.html">
+                <a href="index.html">
                     <img class="shopverse-logo" src="images/shopverse-black.png">
                     <img class="shopverse-mobile-logo" src="images/logo-black.png">
                 </a>
@@ -20,7 +20,7 @@ export function renderCheckoutHeader() {
 
                 <div class="checkout-header-middle-section">
                 <a class="return-to-home-link js-return-to-home-link"
-                    href="shopverse.html"></a>
+                    href="index.html"></a>
                 </div>
 
                 <div class="checkout-header-right-section">

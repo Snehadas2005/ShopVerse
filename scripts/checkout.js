@@ -30,7 +30,7 @@ function renderEmptyCart() {
             </div>
             <h2 class="empty-cart-title">YOUR CART IS EMPTY</h2>
             <div class="empty-cart-buttons">
-                <button class="continue-shopping-btn" onclick="window.location.href='shopverse.html'">
+                <button class="continue-shopping-btn" onclick="window.location.href='index.html'">
                     Continue Shopping
                 </button>
             </div>
