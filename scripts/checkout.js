@@ -122,6 +122,24 @@ export function checkForEmptyCart() {
     }
 }
 
+new Promise((resolve) => {
+    loadProducts(() => {
+        resolve();
+    });
+}).then(() => {
+    const initialize = () => {
+        initializeCheckout();
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+    } else {
+        initialize();
+    }
+});
+
+//this is a simple call back function, before heading to promise headed to callback
+/*
 loadProducts(() => {
     const initialize = () => {
         initializeCheckout();
@@ -133,3 +151,4 @@ loadProducts(() => {
         initialize();
     }
 });
+*/

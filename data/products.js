@@ -76,6 +76,7 @@ class Footwear extends Product {
 
 export let products = [];
 
+
 export function loadProducts(fun) {
     const xhr = new XMLHttpRequest();
 
