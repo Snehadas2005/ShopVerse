@@ -1,7 +1,8 @@
 import { getProduct, loadProductsFetch } from '../data/products.js';
-import { orders } from '../data/orders.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { addToCart } from './cart.js';
+
+const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
 function loadThreeJS() {
   return new Promise((resolve, reject) => {
@@ -108,7 +109,7 @@ async function loadPage() {
               </div>
               <div class="order-total">
                 <div class="order-header-label">Total:</div>
-                <div>₹${total}</div>
+                <div>₹${(total / 100).toFixed(2)}</div>
               </div>
             </div>
             <div class="order-header-right-section">
