@@ -51,6 +51,32 @@ class Clothing extends Product {
   }
 }
 
+export let products =[];
+
+export function loadProducts(fun) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', () => {
+        const productData = JSON.parse(xhr.responseText);
+        products = productData.map((productDetails) => {
+            if(productDetails.type === 'clothing') {
+                return new Clothing(productDetails);
+            }
+            return new Product(productDetails);
+        });
+
+        console.log('Loaded local products');
+        
+        fun();
+    });
+
+    xhr.open('GET', '../backend/products.json', true);  
+    xhr.send();
+}
+
+loadProducts();
+
+/*
 export const products = [
     {   
         id: '2f6e2c2e-5828-4a54-b9e3-4c0be0138253',
@@ -1911,3 +1937,4 @@ export const products = [
     }
         return new Product(productDetails);
 });
+*/

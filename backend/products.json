@@ -1,341 +1,204 @@
 [
-  {   
-      "id": "2f6e2c2e-5828-4a54-b9e3-4c0be0138253",
-      "image": "images/products/dress-1.jpg",
-      "name": "Raysaa Corderio Vintage Corset Crop Top with Mini Dobby Skirt",
-      "rating": {
-          "stars": 4.5,
-          "count": 27
-      },
-      "priceCount" : 1019.00,
-      "keywords": [
-          "Dress",
-          "Corset",
-          "Vintage",
-          "Crop Top",
-          "Mini Skirt",
-          "Raysaa Corderio"
-      ]
-  },{
-      "id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
-      "image": "images/products/black-aline-1.jpg",
-      "name": "Luxe Noir A-Line Sweetheart Evening Gown",
-      "rating": {
-          "stars": 4.5,
-          "count": 67
-      },
-      "priceCount": 2890.00,
-      "keywords": [
-          "Dress",
-          "A-Line",
-          "Evening Gown",
-          "Black",
-          "Sweetheart",
-          "Formal",
-          "Elegant"
-      ]
-  },{
-      "id": "b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7",
-      "image": "images/products/black-aline-2.jpg",
-      "name": "Onyx Princess Floor Length Gown",
-      "rating": {
-          "stars": 4,
-          "count": 89
-      },
-      "priceCount": 3200.00,
-      "keywords": [
-          "Dress",
-          "Ball Gown",
-          "Strapless",
-          "Black",
-          "Formal",
-          "Evening Wear",
-          "Grace"
-      ]
-  },{
-      "id": "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8",
-      "image": "images/products/black-midi-i-1.jpg",
-      "name": "Bella Notte Midii Cocktail Dress",
-      "rating": {
-          "stars": 3.5,
-          "count": 42
-      },
-      "priceCount": 1850.00,
-      "keywords": [
-          "Dress",
-          "Midi",
-          "Cocktail",
-          "Black",
-          "Party Wear",
-          "Bella",
-          "Semi-Formal"
-      ]
-  },{
-      "id": "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9",
-      "image": "images/products/black-midi-2.jpg",
-      "name": "Velvet Rose Midi Wrap Dress",
-      "rating": {
-          "stars": 4.5,
-          "count": 156
-      },
-      "priceCount": 2100.00,
-      "keywords": [
-          "Dress",
-          "Midi",
-          "Wrap",
-          "Black",
-          "Velvet",
-          "Rose",
-          "Elegant"
-      ]
-  },{
-      "id": "e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0",
-      "image": "images/products/black-midi-3.jpg",
-      "name": "Obsidian Dreams Asymmetric Midi",
-      "rating": {
-          "stars": 4,
-          "count": 73
-      },
-      "priceCount": 1650.00,
-      "keywords": [
-          "Dress",
-          "Midi",
-          "Asymmetric",
-          "Black",
-          "Modern",
-          "Dreams",
-          "Contemporary"
-      ]
-  },{
-      "id": "f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1",
-      "image": "images/products/black-mini-1.jpg",
-      "name": "Raven Mini Corset Dress",
-      "rating": {
-          "stars": 5,
-          "count": 234
-      },
-      "priceCount": 980.00,
-      "keywords": [
-          "Dress",
-          "Mini",
-          "Corset",
-          "Black",
-          "Tight Fit",
-          "Raven",
-          "Club Wear"
-      ]
-  },{
-      "id": "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
-      "image": "images/products/black-mini-2.jpg",
-      "name": "Shadow Play Ruched Mini Dress",
-      "rating": {
-          "stars": 3.5,
-          "count": 91
-      },
-      "priceCount": 1320.00,
-      "keywords": [
-          "Dress",
-          "Mini",
-          "Ruched",
-          "Black",
-          "Shadow",
-          "Party",
-          "Textured"
-      ]
-  },{
-      "id": "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
-      "image": "images/products/black-mini-3.jpg",
-      "name": "Noir Chic Pleated Mini",
-      "rating": {
-          "stars": 4,
-          "count": 128
-      },
-      "priceCount": 1450.00,
-      "keywords": [
-          "Dress",
-          "Mini",
-          "Pleated",
-          "Black",
-          "Noir",
-          "Chic",
-          "Fashion Forward"
-      ]
-  },{
-      "id": "i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
-      "image": "images/products/black-mini-4.jpg",
-      "name": "Eclipse Satin Mini Dress",
-      "rating": {
-          "stars": 4.5,
-          "count": 203
-      },
-      "priceCount": 1799.00,
-      "keywords": [
-          "Dress",
-          "Mini",
-          "Satin",
-          "Black",
-          "Eclipse",
-          "Luxurious",
-          "Smooth Finish"
-      ]
-  },{
-      "id": "8a1e2b88-758f-4d1c-9fc4-13f836d9b2f2",
-      "image": "images/products/dress-3.jpg",
-      "name": "BENDISTAR BUTIK White Floral Midi Slit Dress",
-      "rating": {
-          "stars": 4,
-          "count": 22
-      },
-      "priceCount": 4893.00,
-      "keywords": [
-          "Dress",
-          "Floral",
-          "Midi",
-          "White Dress",
-          "Slit Dress",
-          "BENDISTAR"
-      ]
-  }, {
-      "id": "6c5d9e47-1a3b-4c2d-8f9e-0a7b6c5d4e3f",
-      "image": "images/products/dress-4.jpg",
-      "name": "Uncut High Waist Suspender Retro Slit Tie Dress",
-      "rating": {
-          "stars": 5,
-          "count": 43
-      },
-      "priceCount": 2599.00,
-      "keywords": [
-          "Dress", 
-          "High Waist", 
-          "Suspender", 
-          "Retro", 
-          "Slit Dress",
-          "Tie Dress",
-          "Uncut"
-      ]
-  }, {
-      "id": "9d8c7b6a-5f4e-3d2c-1b0a-9f8e7d6c5b4a",
-      "image": "images/products/dress-6.jpg",
-      "name": "Teuta Matoshi Cherry Print Flared Dress",
-      "rating": {
-          "stars": 4.5,
-          "count": 87
-      },
-      "priceCount": 1116.00,
-      "keywords": [
-          "Dress",
-          "Cherry Print",
-          "Flared",
-          "Teuta Matoshi",
-          "Printed Dress",
-          "Fruit Pattern"
-      ]
-  }, {
-      "id": "j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5",
-      "image": "images/products/black-aline-3.jpg",
-      "name": "Ethereal Black Tulle Evening Dress",
-      "rating": {
-          "stars": 4.5,
-          "count": 112
-      },
-      "priceCount": 2750.00,
-      "keywords": [
-          "Dress",
-          "Evening",
-          "Tulle",
-          "Black",
-          "Ethereal",
-          "Formal",
-          "Layered"
-      ]
-  },{
-      "id": "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6",
-      "image": "images/products/black-aline-4.jpg",
-      "name": "Midnight Grace Strapless Ball Gown",
-      "rating": {
-          "stars": 5,
-          "count": 345
-      },
-      "priceCount": 4200.00,
-      "keywords": [
-          "Dress",
-          "Floor Length",
-          "Gown",
-          "Black",
-          "Onyx",
-          "Princess",
-          "Formal"
-      ]
-  },{
-      "id": "l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7",
-      "image": "images/products/black-aline-5.jpg",
-      "name": "Starlight Sequin A-Line Dress",
-      "rating": {
-          "stars": 3.5,
-          "count": 78
-      },
-      "priceCount": 1980.00,
-      "keywords": [
-          "Dress",
-          "A-Line",
-          "Sequin",
-          "Black",
-          "Starlight",
-          "Sparkly",
-          "Party Wear"
-      ]
-  },{
-      "id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
-      "image": "images/products/dress-7.jpg",
-      "name": "Boohoo Slit Ruched Midi Dress ",
-      "rating": {
-          "stars": 5,
-          "count": 190
-      },
-      "priceCount": 4199.00,
-      "keywords": [
-          "Dress",
-          "Midi",
-          "Slit",
-          "Ruched",
-          "Boohoo",
-          "Evening Wear"
-      ]
-  }, {
-      "id": "7p8o9i0u-6y5t-4r3e-2w1q-0a9s8d7f6g5h",
-      "image": "images/products/dress-9.jpg",
-      "name": "The Bebo Urbane Elegant Maroon Midi Dress ",
-      "rating": {
-          "stars": 4,
-          "count": 31
-      },
-      "priceCount": 2331.00,
-      "keywords": [
-          "Dress",
-          "Midi",
-          "Maroon",
-          "Elegant",
-          "Bebo",
-          "Urbane"
-      ]
-  }, {
-      "id": "a1s2d3f4-g5h6-j7k8-l9p0-o9i8u7y6t5r",
-      "image": "images/products/dress-10.jpg",
-      "name": "Uncut Spaghetti Strap High Waist Elegant Embriodery",
-      "rating": {
-          "stars": 3.5,
-          "count": 59
-      },
-      "priceCount": 1759.00,
-      "keywords": [
-          "Dress",
-          "Spaghetti Strap",
-          "High Waist",
-          "Elegant",
-          "Embroidery",
-          "Uncut"
-      ]
-  },{
+  {
+    "id": "2f6e2c2e-5828-4a54-b9e3-4c0be0138253",
+    "image": "images/products/dress-1.jpg",
+    "name": "Raysaa Corderio Vintage Corset Crop Top with Mini Dobby Skirt",
+    "rating": {
+      "stars": 4.5,
+      "count": 27
+    },
+    "priceCount": 1019.00,
+    "keywords": [
+      "Dress",
+      "Corset",
+      "Vintage",
+      "Crop Top",
+      "Mini Skirt",
+      "Raysaa Corderio"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+    "image": "images/products/black-aline-1.jpg",
+    "name": "Luxe Noir A-Line Sweetheart Evening Gown",
+    "rating": {
+      "stars": 4.5,
+      "count": 67
+    },
+    "priceCount": 2890.00,
+    "keywords": [
+      "Dress",
+      "A-Line",
+      "Evening Gown",
+      "Black",
+      "Sweetheart",
+      "Formal",
+      "Elegant"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7",
+    "image": "images/products/black-aline-2.jpg",
+    "name": "Onyx Princess Floor Length Gown",
+    "rating": {
+      "stars": 4,
+      "count": 89
+    },
+    "priceCount": 3200.00,
+    "keywords": [
+      "Dress",
+      "Ball Gown",
+      "Strapless",
+      "Black",
+      "Formal",
+      "Evening Wear",
+      "Grace"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8",
+    "image": "images/products/black-midi-1.jpg",
+    "name": "Bella Notte Midii Cocktail Dress",
+    "rating": {
+      "stars": 3.5,
+      "count": 42
+    },
+    "priceCount": 1850.00,
+    "keywords": [
+      "Dress",
+      "Midi",
+      "Cocktail",
+      "Black",
+      "Party Wear",
+      "Bella",
+      "Semi-Formal"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9",
+    "image": "images/products/black-midi-2.jpg",
+    "name": "Velvet Rose Midi Wrap Dress",
+    "rating": {
+      "stars": 4.5,
+      "count": 156
+    },
+    "priceCount": 2100.00,
+    "keywords": [
+      "Dress",
+      "Midi",
+      "Wrap",
+      "Black",
+      "Velvet",
+      "Rose",
+      "Elegant"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0",
+    "image": "images/products/black-midi-3.jpg",
+    "name": "Obsidian Dreams Asymmetric Midi",
+    "rating": {
+      "stars": 4,
+      "count": 73
+    },
+    "priceCount": 1650.00,
+    "keywords": [
+      "Dress",
+      "Midi",
+      "Asymmetric",
+      "Black",
+      "Modern",
+      "Dreams",
+      "Contemporary"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1",
+    "image": "images/products/black-mini-1.jpg",
+    "name": "Raven Mini Corset Dress",
+    "rating": {
+      "stars": 5,
+      "count": 234
+    },
+    "priceCount": 980.00,
+    "keywords": [
+      "Dress",
+      "Mini",
+      "Corset",
+      "Black",
+      "Tight Fit",
+      "Raven",
+      "Club Wear"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
+    "image": "images/products/black-mini-2.jpg",
+    "name": "Shadow Play Ruched Mini Dress",
+    "rating": {
+      "stars": 3.5,
+      "count": 91
+    },
+    "priceCount": 1320.00,
+    "keywords": [
+      "Dress",
+      "Mini",
+      "Ruched",
+      "Black",
+      "Shadow",
+      "Party",
+      "Textured"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
+    "image": "images/products/black-mini-3.jpg",
+    "name": "Noir Chic Pleated Mini",
+    "rating": {
+      "stars": 4,
+      "count": 128
+    },
+    "priceCount": 1450.00,
+    "keywords": [
+      "Dress",
+      "Mini",
+      "Pleated",
+      "Black",
+      "Noir",
+      "Chic",
+      "Fashion Forward"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
+    "id": "i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
+    "image": "images/products/black-mini-4.jpg",
+    "name": "Eclipse Satin Mini Dress",
+    "rating": {
+      "stars": 4.5,
+      "count": 203
+    },
+    "priceCount": 1799.00,
+    "keywords": [
+      "Dress",
+      "Mini",
+      "Satin",
+      "Black",
+      "Eclipse",
+      "Luxurious",
+      "Smooth Finish"
+    ],
+    "type": "clothing",
+    "sizeChartLink": "images/clothing-size-chart.png"
+},{
       "id": "q1w2e3r4-t5y6-u7i8-o9p0-a1s2d3f4g5h6",
       "image": "images/products/boots-2.jpg",
       "name": "Rise Fashion Fuzzy Lace Combat Boots",
