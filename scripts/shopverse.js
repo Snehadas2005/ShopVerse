@@ -55,7 +55,6 @@ function renderProductsGrid() {
         `;
     });
 
-    // Clothing Size Chart Modal
     productsHTML += `
         <div class="size-chart-modal js-clothing-size-chart-modal">
             <div class="size-chart-backdrop js-clothing-size-chart-backdrop"></div>
@@ -191,7 +190,6 @@ function renderProductsGrid() {
         </div>
     `;
 
-    // Footwear Size Chart Modal
     productsHTML += `
         <div class="size-chart-modal js-footwear-size-chart-modal">
             <div class="size-chart-backdrop js-footwear-size-chart-backdrop"></div>

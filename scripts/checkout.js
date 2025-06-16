@@ -30,10 +30,8 @@ function loadProductsAsync() {
 }
 
 async function loadPage() {
-    console.log('load page');
     try {
         await loadProductsAsync();
-        console.log('Products loaded successfully');
     } catch (error) {
         console.error('Failed to load products:', error);
     }
