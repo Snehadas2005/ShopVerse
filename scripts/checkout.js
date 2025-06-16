@@ -2,7 +2,7 @@ import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 import { cart } from "../data/cart.js";
 import { renderCheckoutHeader } from "./checkout/checkoutheader.js";
-
+import { loadProducts } from "../data/products.js";
 
 renderCheckoutHeader();
 
@@ -122,12 +122,14 @@ export function checkForEmptyCart() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCheckout();
-});
+loadProducts(() => {
+    const initialize = () => {
+        initializeCheckout();
+    };
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCheckout);
-} else {
-    initializeCheckout();
-}
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+    } else {
+        initialize();
+    }
+});
