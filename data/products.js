@@ -16,15 +16,17 @@ class Product {
     name;
     rating;
     priceCount;
+    type;
 
     constructor(productDetails) {
-        this.id = productDetails.id;
         this.id = productDetails.id;
         this.image = productDetails.image;
         this.name = productDetails.name;
         this.rating = productDetails.rating;
         this.priceCount = productDetails.priceCount;
+        this.type = productDetails.type;
     }
+    
     getStarsUrl() {
         return `images/ratings/rating-${this.rating.stars * 10}.png`;
     }
@@ -35,23 +37,44 @@ class Product {
 }
 
 class Clothing extends Product {
-  sizeChartLink;
+    sizeChartLink;
 
-  constructor(productDetails) {
-    super(productDetails);
-    this.sizeChartLink = productDetails.sizeChartLink;
-  }
+    constructor(productDetails) {
+        super(productDetails);
+        this.sizeChartLink = productDetails.sizeChartLink;
+    }
 
-  extraInfoHTML() {
-    return `
-      <a href="${this.sizeChartLink}" target="_blank">
-        Size chart
-      </a>
-    `;
-  }
+    extraInfoHTML() {
+        return `
+            <div class="size-chart-container">
+                <button class="size-chart-button js-clothing-size-chart-button" data-product-id="${this.id}" data-chart-type="clothing">
+                    📏 Size Chart
+                </button>
+            </div>
+        `;
+    }
 }
 
-export let products =[];
+class Footwear extends Product {
+    sizeChartLink;
+
+    constructor(productDetails) {
+        super(productDetails);
+        this.sizeChartLink = productDetails.sizeChartLink;
+    }
+
+    extraInfoHTML() {
+        return `
+            <div class="size-chart-container">
+                <button class="size-chart-button js-footwear-size-chart-button" data-product-id="${this.id}" data-chart-type="footwear">
+                    👠 Size Chart
+                </button>
+            </div>
+        `;
+    }
+}
+
+export let products = [];
 
 export function loadProducts(fun) {
     const xhr = new XMLHttpRequest();
@@ -62,19 +85,18 @@ export function loadProducts(fun) {
             if(productDetails.type === 'clothing') {
                 return new Clothing(productDetails);
             }
+            if(productDetails.type === 'footwear') {
+                return new Footwear(productDetails);
+            }
             return new Product(productDetails);
         });
 
-        console.log('Loaded local products');
-        
         fun();
     });
 
     xhr.open('GET', '../backend/products.json', true);  
     xhr.send();
 }
-
-loadProducts();
 
 /*
 export const products = [

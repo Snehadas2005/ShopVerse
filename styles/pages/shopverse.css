@@ -188,6 +188,54 @@ body {
   text-shadow: 0 2px 4px rgba(142, 24, 24, 0.25);
 }
 
+.size-chart-container {
+  margin-bottom: 15px;
+  display: block;
+  justify-content: center;
+}
+
+.size-chart-button {
+background: linear-gradient(135deg, rgb(255, 131, 131), rgb(180, 40, 40));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.size-chart-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.3s ease;
+}
+
+.size-chart-button:hover::before {
+  left: 100%;
+}
+
+.size-chart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgb(249, 181, 181);
+  background: linear-gradient(135deg, rgb(255, 131, 131), rgb(180, 40, 40));
+}
+
+.size-chart-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
 .product-quantity-container {
   margin-bottom: 17px;
 }
@@ -307,6 +355,187 @@ body {
 .product-container:nth-child(16) { animation-delay: 0.8s; }
 .product-container:nth-child(n+17) { animation-delay: 0.1s; }
 
+.size-chart-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.size-chart-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.size-chart-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.size-chart-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.size-chart-modal.active .size-chart-content {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.size-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: white;
+  border-radius: 15px 15px 0 0;
+  z-index: 1;
+}
+
+.size-chart-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.unit-toggle {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 25px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.unit-btn {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.unit-btn.active {
+  background: linear-gradient(135deg, #ff9191, #ff4c4c);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.unit-btn:hover:not(.active) {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.size-chart-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.size-chart-close:hover {
+  background: #f0f0f0;
+  color: #666;
+  transform: rotate(90deg);
+}
+
+.size-chart-body {
+  padding: 30px;
+}
+
+.size-chart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.size-chart-table th {
+  background: linear-gradient(135deg,#ff9191, #ff4c4c);
+  color: white;
+  padding: 15px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+}
+
+.size-chart-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.size-chart-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.size-chart-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.size-chart-table td:first-child {
+  font-weight: 600;
+  background: #fafafa;
+}
+
+.size-chart-note {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border: 1px solid #ffeaa7;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.size-chart-note p {
+  margin: 0;
+  color: #856404;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.size-chart-note strong {
+  color: #533f03;
+}
+
 @media (max-width: 768px) {
   .product-container {
     padding: 20px 15px 15px 15px;
@@ -323,6 +552,51 @@ body {
     font-size: 13px;
   }
 
+  .size-chart-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .size-chart-content {
+    max-width: 95vw;
+    margin: 20px;
+  }
+  
+  .size-chart-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .size-chart-header h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .unit-toggle {
+    align-self: center;
+  }
+  
+  .size-chart-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .size-chart-body {
+    padding: 20px;
+  }
+  
+  .size-chart-table {
+    font-size: 12px;
+  }
+  
+  .size-chart-table th,
+  .size-chart-table td {
+    padding: 8px 6px;
+  }
+
   .product-container:nth-child(1) { animation-delay: 0.02s; }
   .product-container:nth-child(2) { animation-delay: 0.04s; }
   .product-container:nth-child(3) { animation-delay: 0.06s; }
@@ -332,6 +606,22 @@ body {
   .product-container:nth-child(7) { animation-delay: 0.14s; }
   .product-container:nth-child(8) { animation-delay: 0.16s; }
   .product-container:nth-child(n+9) { animation-delay: 0.05s; }
+}
+
+@media (max-width: 480px) {
+  .size-chart-table {
+    font-size: 10px;
+  }
+  
+  .size-chart-table th,
+  .size-chart-table td {
+    padding: 6px 4px;
+  }
+  
+  .unit-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
 
 html {
