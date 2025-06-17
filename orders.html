@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Orders</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,48 +11,46 @@
     <link rel="stylesheet" href="styles/shared/general.css">
     <link rel="stylesheet" href="styles/shared/shopverse-header.css">
     <link rel="stylesheet" href="styles/pages/orders.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   </head>
   <body>
+
     <div class="shopverse-header">
       <div class="shopverse-header-left-section">
         <a href="index.html" class="header-link">
-          <img class="shopverse-logo"
-            src="images/shopverse-black.png">
-          <img class="shopverse-mobile-logo"
-            src="images/logo-black.png">
+          <img class="shopverse-logo" src="images/shopverse-black.png">
+          <img class="shopverse-mobile-logo" src="images/logo-black.png">
         </a>
       </div>
 
       <div class="shopverse-header-middle-section">
         <input class="search-bar" type="text" placeholder="Search">
-
         <button class="search-button">
           <img class="search-icon" src="images/icons/search-icon.png">
         </button>
       </div>
 
       <div class="shopverse-header-right-section">
-        <a class="orders-link header-link" href="orders.html">
+        <a class="orders-link header-link" href="order.html">
           <span class="returns-text">Returns</span>
           <span class="orders-text">& Orders</span>
         </a>
 
         <a class="cart-link header-link" href="checkout.html">
           <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity">3</div>
+          <div class="cart-quantity">0</div>
           <div class="cart-text">Cart</div>
         </a>
       </div>
     </div>
-    
+
     <div class="main">
       <div class="page-title">Your Orders</div>
       <div class="orders-grid"></div>
     </div>
 
-
-
     <script type="module" src="scripts/shared/universalEffects.js"></script>
-    <script type="module" src="scripts/orders.js"></script>
+    <script type="module" src="data/orders.js"></script>
   </body>
 </html>

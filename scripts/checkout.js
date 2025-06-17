@@ -110,9 +110,17 @@ async function initializeCheckout() {
         setTimeout(() => {
             if (window.UniversalEffects) {
                 const success = window.UniversalEffects.initAll({
-                    scroll: ['.cart-item-container', '.payment-summary', '.empty-cart-container', '.page-title'],
-                    hover: ['.cart-item-container', '.payment-summary'], 
-                    buttons: ['.place-order-button', '.continue-shopping-btn', '.update-quantity-link', '.save-quantity-link', '.delete-quantity-link']
+                    scroll: ['.cart-item-container', 
+                        '.payment-summary', 
+                        '.empty-cart-container', 
+                        '.page-title'],
+                    hover: ['.cart-item-container', 
+                        '.payment-summary'], 
+                    buttons: ['.place-order-button', 
+                        '.continue-shopping-btn', 
+                        '.update-quantity-link', 
+                        '.save-quantity-link', 
+                        '.delete-quantity-link']
                 });
                 
                 if (success) {

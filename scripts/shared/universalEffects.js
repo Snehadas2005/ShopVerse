@@ -39,21 +39,12 @@ class UniversalEffects {
     }
 
     async initThreeJS() {
-        if (this.initAttempted) {
-            return this.isInitialized;
-        }
-
+        if (this.initAttempted) return this.isInitialized;
         this.initAttempted = true;
 
         await this.waitForThreeJS();
-
-        if (typeof THREE === 'undefined') {
-            return false;
-        }
-
-        if (this.isInitialized) {
-            return true;
-        }
+        if (typeof THREE === 'undefined') return false;
+        if (this.isInitialized) return true;
 
         try {
             this.scene = new THREE.Scene();
@@ -67,11 +58,9 @@ class UniversalEffects {
             this.renderer.domElement.style.left = '0';
             this.renderer.domElement.style.zIndex = '-1';
             this.renderer.domElement.style.pointerEvents = 'none';
-
             document.body.appendChild(this.renderer.domElement);
 
             this.createParticles();
-
             this.camera.position.z = 5;
             this.isInitialized = true;
 
@@ -82,15 +71,13 @@ class UniversalEffects {
     }
 
     createParticles() {
-        const particleCount = this.config.particleCount;
-        const positions = new Float32Array(particleCount * 3);
-        const colors = new Float32Array(particleCount * 3);
+        const positions = new Float32Array(this.config.particleCount * 3);
+        const colors = new Float32Array(this.config.particleCount * 3);
 
-        for (let i = 0; i < particleCount * 3; i += 3) {
+        for (let i = 0; i < this.config.particleCount * 3; i += 3) {
             positions[i] = (Math.random() - 0.5) * 20;
             positions[i + 1] = (Math.random() - 0.5) * 20;
             positions[i + 2] = (Math.random() - 0.5) * 20;
-
             colors[i] = Math.random() * 0.5 + 0.5;
             colors[i + 1] = Math.random() * 0.3;
             colors[i + 2] = Math.random() * 0.3 + 0.2;
@@ -113,13 +100,11 @@ class UniversalEffects {
 
     animate() {
         if (!this.animationEnabled || !this.renderer || !this.isInitialized) return;
-
         requestAnimationFrame(() => this.animate());
 
         if (this.particles) {
             this.particles.rotation.x += this.config.animationSpeed;
             this.particles.rotation.y += this.config.animationSpeed * 2;
-
             const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight || 1);
             this.particles.position.y = scrollPercent * this.config.scrollSensitivity;
         }
@@ -147,142 +132,108 @@ class UniversalEffects {
     }
 
     initScrollAnimations(selectors = []) {
-        const defaultSelectors = [
-            '.product-container',
-            '.cart-item-container',
-            '.payment-summary',
-            '.order-container',
-            '.tracking-container',
-            '.empty-cart-container',
+        const defaultSelectors = ['.product-container', 
+            '.cart-item-container', 
+            '.payment-summary', 
+            '.order-container', 
+            '.tracking-container', 
+            '.empty-cart-container', 
             '.empty-orders-container',
-            '.product-image-container',
-            '.product-details',
-            '.product-actions',
-            '.page-title'
-        ];
-
+            '.product-image-container', 
+            '.product-details', 
+            '.product-actions', 
+            '.page-title'];
         const allSelectors = [...defaultSelectors, ...selectors];
-        const animatedElements = document.querySelectorAll(allSelectors.join(', '));
+        const elements = document.querySelectorAll(allSelectors.join(', '));
 
-        if (animatedElements.length === 0) return;
-
-        animatedElements.forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(50px) scale(0.9)';
-            element.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
+        elements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px) scale(0.9)';
+            el.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
         });
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                        entry.target.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.3)';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    entry.target.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.3)';
+                    this.startAnimation();
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '50px' });
 
-                        this.startAnimation();
-                    }
-                });
-            },
-            {
-                threshold: 0.1,
-                rootMargin: '50px'
-            }
-        );
-
-        animatedElements.forEach((element) => {
-            observer.observe(element);
-        });
+        elements.forEach((el) => observer.observe(el));
     }
 
     addHoverEffects(selectors = []) {
         const defaultSelectors = [
-            '.product-container',
-            '.cart-item-container',
-            '.payment-summary',
-            '.order-container',
-            '.tracking-container',
-            '.product-image-container',
-            '.product-details'
-        ];
-
+            '.product-container', 
+            '.cart-item-container', 
+            '.payment-summary', 
+            '.order-container', 
+            '.tracking-container', 
+            '.product-image-container', 
+            '.product-details'];
         const allSelectors = [...defaultSelectors, ...selectors];
-        const hoverElements = document.querySelectorAll(allSelectors.join(', '));
+        const elements = document.querySelectorAll(allSelectors.join(', '));
 
-        hoverElements.forEach((element) => {
-            if (element.classList.contains('empty-cart-container')) {
-                return;
-            }
+        elements.forEach((el) => {
+            if (el.classList.contains('empty-cart-container')) return;
 
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = 'translateY(-10px) scale(1.02)';
-                element.style.boxShadow = '0 20px 40px rgba(255, 192, 203, 0.4)';
-                element.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            el.addEventListener('mouseenter', () => {
+                el.style.transform = 'translateY(-10px) scale(1.02)';
+                el.style.boxShadow = '0 20px 40px rgba(255, 192, 203, 0.4)';
+                el.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             });
 
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = 'translateY(0) scale(1)';
-                element.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.2)';
-            });
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = 'translateY(-10px) scale(1.02)';
-                element.style.boxShadow = '0 20px 40px rgba(255, 192, 203, 0.4)';
-                element.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-
-                Array.from(element.children).forEach((child) => {
-                    child.style.transform = 'none';
-                });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translateY(0) scale(1)';
+                el.style.boxShadow = '0 10px 30px rgba(255, 192, 203, 0.2)';
             });
         });
-
     }
 
     addButtonEffects(selectors = []) {
-        const defaultSelectors = [
-            '.add-to-cart-button',
-            '.place-order-button',
-            '.continue-shopping-btn',
-            '.track-order-btn',
-            '.reorder-btn',
-            '.update-quantity-link',
-            '.save-quantity-link',
-            '.delete-quantity-link',
-            '.buy-again-button',
-            '.track-package-button',
-            '.start-shopping-btn'
-        ];
-
+        const defaultSelectors = ['.add-to-cart-button',
+             '.place-order-button', 
+             '.continue-shopping-btn', 
+             '.track-order-btn', 
+             '.reorder-btn', 
+             '.update-quantity-link', 
+             '.save-quantity-link', 
+             '.delete-quantity-link', 
+             '.buy-again-button', 
+             '.track-package-button', 
+             '.start-shopping-btn'];
         const allSelectors = [...defaultSelectors, ...selectors];
         const buttons = document.querySelectorAll(allSelectors.join(', '));
 
-        buttons.forEach((button) => {
-            button.addEventListener('mouseenter', () => {
-                button.style.transform = 'translateY(-3px) scale(1.02)';
-                button.style.transition = 'all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        buttons.forEach((btn) => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-3px) scale(1.02)';
+                btn.style.transition = 'all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             });
 
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = 'translateY(0) scale(1)';
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0) scale(1)';
             });
 
-            button.addEventListener('mousedown', () => {
-                button.style.transform = 'translateY(0) scale(0.98)';
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'translateY(0) scale(0.98)';
             });
 
-            button.addEventListener('mouseup', () => {
-                button.style.transform = 'translateY(-3px) scale(1.02)';
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'translateY(-3px) scale(1.02)';
             });
         });
     }
 
     initPageTitleAnimation() {
-        const pageTitles = document.querySelectorAll('.page-title, h1, .main-title');
-
-        pageTitles.forEach((title, index) => {
+        document.querySelectorAll('.page-title, h1, .main-title').forEach((title, index) => {
             title.style.opacity = '0';
             title.style.transform = 'translateY(-20px)';
             title.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-
             setTimeout(() => {
                 title.style.opacity = '1';
                 title.style.transform = 'translateY(0)';
@@ -310,14 +261,14 @@ class UniversalEffects {
     cleanup() {
         this.stopAnimation();
 
-        if (this.renderer && this.renderer.domElement && this.renderer.domElement.parentNode) {
+        if (this.renderer?.domElement?.parentNode) {
             this.renderer.domElement.parentNode.removeChild(this.renderer.domElement);
         }
 
         if (this.scene && this.particles) {
             this.scene.remove(this.particles);
-            if (this.particles.geometry) this.particles.geometry.dispose();
-            if (this.particles.material) this.particles.material.dispose();
+            this.particles.geometry?.dispose();
+            this.particles.material?.dispose();
         }
 
         this.particles = null;

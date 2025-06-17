@@ -1,8 +1,17 @@
-import { getProduct, loadProductsFetch } from '../data/products.js';
+import { getProduct } from './products.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { addToCart } from './cart.js';
 
-const orders = JSON.parse(localStorage.getItem('orders')) || [];
+function getOrders() {
+  try {
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    console.log('Retrieved orders:', orders); 
+    return orders;
+  } catch (error) {
+    console.error('Error retrieving orders:', error);
+    return [];
+  }
+}
 
 function loadThreeJS() {
   return new Promise((resolve, reject) => {
@@ -22,14 +31,14 @@ function loadThreeJS() {
 function renderEmptyOrders() {
   const ordersGrid = document.querySelector('.orders-grid');
   ordersGrid.innerHTML = `
-    <div class="empty-orders-container">
-      <div class="empty-orders-icon">
-        <img src="images/empty-orders.png" alt="No Orders" class="empty-orders-image">
+    <div class="empty-cart-container">
+      <div class="empty-cart-icon">
+        <img src="images/emptycart.png" alt="Empty cart" class="empty-cart-image">
       </div>
-      <h2 class="empty-orders-title">NO ORDERS YET</h2>
+      <h2 class="empty-cart-title">NO ORDERS YET</h2>
       <p class="empty-orders-message">Looks like you haven't placed any orders yet.</p>
-      <div class="empty-orders-buttons">
-        <button class="start-shopping-btn" onclick="window.location.href='index.html'">
+      <div class="empty-cart-buttons">
+        <button class="continue-shopping-btn" onclick="window.location.href='index.html'">
           Start Shopping
         </button>
       </div>
@@ -60,7 +69,7 @@ function productsListHTML(order) {
       <div class="product-details">
         <div class="product-name">${product.name}</div>
         <div class="product-delivery-date">
-          Arriving on: ${dayjs(productDetails.estimatedDeliveryTime).format('MMMM D')}
+          Arriving on: ${productDetails.estimatedDeliveryTime}
         </div>
         <div class="product-quantity">Quantity: ${productDetails.quantity}</div>
         <button class="buy-again-button button-primary js-buy-again" data-product-id="${product.id}">
@@ -81,7 +90,7 @@ function productsListHTML(order) {
 
 async function loadPage() {
   try {
-    await loadProductsFetch();
+    const orders = getOrders();
 
     if (!orders || orders.length === 0) {
       renderEmptyOrders();
@@ -91,13 +100,22 @@ async function loadPage() {
     let ordersHTML = '';
 
     orders.forEach((order) => {
-      const orderTime = dayjs(order.orderTime).format('MMMM D');
-      let total = 0;
-
-      order.products.forEach((p) => {
-        const prod = getProduct(p.productId);
-        if (prod) total += prod.priceCents * p.quantity;
-      });
+      const orderTime = order.orderTime;
+      
+      let total = order.totalPrice || 0;
+      
+      if (!total || total === 0) {
+        order.products.forEach((p) => {
+          const prod = getProduct(p.productId);
+          if (prod) {
+            total += prod.priceCount * p.quantity;
+          }
+        });
+        
+        if (order.shippingPrice) {
+          total += order.shippingPrice;
+        }
+      }
 
       ordersHTML += `
         <div class="order-container">
@@ -109,7 +127,7 @@ async function loadPage() {
               </div>
               <div class="order-total">
                 <div class="order-header-label">Total:</div>
-                <div>₹${(total / 100).toFixed(2)}</div>
+                <div>₹${total}</div>
               </div>
             </div>
             <div class="order-header-right-section">

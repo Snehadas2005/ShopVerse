@@ -30,6 +30,255 @@ function renderProductsGrid() {
 
   filteredProducts.forEach((product) => {
     productsHTML += `
+        <div class="size-chart-modal js-clothing-size-chart-modal">
+            <div class="size-chart-backdrop js-clothing-size-chart-backdrop"></div>
+            <div class="size-chart-content">
+                <div class="size-chart-header">
+                    <h2>Women's Clothing Size Chart</h2>
+                    <div class="unit-toggle">
+                        <button class="unit-btn active js-clothing-unit-cm">CM</button>
+                        <button class="unit-btn js-clothing-unit-inch">INCH</button>
+                    </div>
+                    <button class="size-chart-close js-clothing-size-chart-close">&times;</button>
+                </div>
+                <div class="size-chart-body">
+                    <div class="size-chart-cm js-clothing-size-chart-cm">
+                        <table class="size-chart-table">
+                            <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Bust (cm)</th>
+                                    <th>Waist (cm)</th>
+                                    <th>Hips (cm)</th>
+                                    <th>Front Length (cm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>XS</strong></td>
+                                    <td>85</td>
+                                    <td>80</td>
+                                    <td>90</td>
+                                    <td>115</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>S</strong></td>
+                                    <td>91</td>
+                                    <td>86</td>
+                                    <td>96.5</td>
+                                    <td>117</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>M</strong></td>
+                                    <td>95</td>
+                                    <td>90</td>
+                                    <td>100</td>
+                                    <td>115</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>L</strong></td>
+                                    <td>100</td>
+                                    <td>95</td>
+                                    <td>105</td>
+                                    <td>115</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>XL</strong></td>
+                                    <td>105</td>
+                                    <td>100</td>
+                                    <td>110</td>
+                                    <td>115</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>XXL</strong></td>
+                                    <td>110</td>
+                                    <td>105</td>
+                                    <td>115</td>
+                                    <td>115</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="size-chart-inch js-clothing-size-chart-inch" style="display: none;">
+                        <table class="size-chart-table">
+                            <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Bust (in)</th>
+                                    <th>Waist (in)</th>
+                                    <th>Hips (in)</th>
+                                    <th>Front Length (in)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>XS</strong></td>
+                                    <td>34</td>
+                                    <td>32</td>
+                                    <td>36</td>
+                                    <td>46</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>S</strong></td>
+                                    <td>36</td>
+                                    <td>34</td>
+                                    <td>38</td>
+                                    <td>46</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>M</strong></td>
+                                    <td>38</td>
+                                    <td>36</td>
+                                    <td>40</td>
+                                    <td>46</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>L</strong></td>
+                                    <td>40</td>
+                                    <td>38</td>
+                                    <td>42</td>
+                                    <td>46</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>XL</strong></td>
+                                    <td>42</td>
+                                    <td>40</td>
+                                    <td>44</td>
+                                    <td>46</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>XXL</strong></td>
+                                    <td>44</td>
+                                    <td>42</td>
+                                    <td>46</td>
+                                    <td>46</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="size-chart-note">
+                        <p><strong>Note:</strong> Measurements are approximate and may vary slightly. For the best fit, we recommend measuring yourself and comparing with the chart above.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    productsHTML += `
+        <div class="size-chart-modal js-footwear-size-chart-modal">
+            <div class="size-chart-backdrop js-footwear-size-chart-backdrop"></div>
+            <div class="size-chart-content">
+                <div class="size-chart-header">
+                    <h2>Women's Shoe Size Conversion Chart</h2>
+                    <button class="size-chart-close js-footwear-size-chart-close">&times;</button>
+                </div>
+                <div class="size-chart-body">
+                    <div class="size-chart-footwear">
+                        <table class="size-chart-table">
+                            <thead>
+                                <tr>
+                                    <th>UK Size</th>
+                                    <th>US Size</th>
+                                    <th>EUR Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>2</strong></td>
+                                    <td>4</td>
+                                    <td>34-35</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2.5</strong></td>
+                                    <td>4.5</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3</strong></td>
+                                    <td>5</td>
+                                    <td>35-36</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3.5</strong></td>
+                                    <td>5.5</td>
+                                    <td>36</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4</strong></td>
+                                    <td>6</td>
+                                    <td>36-37</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.5</strong></td>
+                                    <td>6.5</td>
+                                    <td>37</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5</strong></td>
+                                    <td>7</td>
+                                    <td>37-38</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5.5</strong></td>
+                                    <td>7.5</td>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6</strong></td>
+                                    <td>8</td>
+                                    <td>38-39</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6.5</strong></td>
+                                    <td>8.5</td>
+                                    <td>39</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>7</strong></td>
+                                    <td>9</td>
+                                    <td>39-40</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>7.5</strong></td>
+                                    <td>9.5</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>8</strong></td>
+                                    <td>10</td>
+                                    <td>40-41</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>8.5</strong></td>
+                                    <td>10.5</td>
+                                    <td>41</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>9</strong></td>
+                                    <td>11</td>
+                                    <td>41-42</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>9.5</strong></td>
+                                    <td>11.5</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>10</strong></td>
+                                    <td>12</td>
+                                    <td>42-43</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="size-chart-note">
+                        <p><strong>Note:</strong> Shoe sizes may vary between brands and styles. We recommend trying on shoes or checking individual product size guides when available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    productsHTML += `
       <div class="product-container product-animate" data-product-id="${product.id}">
         <div class="product-image-container">
           <img class="product-image" src="${product.image}">
