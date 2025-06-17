@@ -14,14 +14,28 @@
     <link rel="stylesheet" href="styles/pages/checkout/checkout.css">
   </head>
   <body>
-    <div class="checkout-header js-checkout-header"></div>
-    <div class="main">
-      <div class="page-title">Review your order</div>
-      <div class="checkout-grid">
-        <div class="order-summary js-order-summary"></div>
-        <div class="payment-summary js-payment-summary"></div>
+    <div class="page-wrapper">
+      <div class="checkout-header js-checkout-header"></div>
+
+      <div class="main">
+        <div class="page-title">Review your order</div>
+        <div class="checkout-grid">
+          <div class="order-summary js-order-summary"></div>
+          <div class="payment-summary js-payment-summary"></div>
+        </div>
       </div>
+
+      <div id="footer-placeholder"></div>
     </div>
+
+    <script>
+      fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+
     <script type="module" src="/scripts/checkout.js"></script>
     <script type="module" src="scripts/shared/universalEffects.js"></script>
   </body>
