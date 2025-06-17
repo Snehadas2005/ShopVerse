@@ -186,7 +186,6 @@ python -m http.server 8000
 * ✅ Firefox
 * ✅ Safari
 * ✅ Edge
-* ✅ Mobile Browsers (iOS + Android)
 
 ---
 
