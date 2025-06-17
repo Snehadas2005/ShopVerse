@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Tracking</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,21 +11,20 @@
     <link rel="stylesheet" href="styles/shared/general.css">
     <link rel="stylesheet" href="styles/shared/shopverse-header.css">
     <link rel="stylesheet" href="styles/pages/tracking.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   </head>
   <body>
     <div class="shopverse-header">
       <div class="shopverse-header-left-section">
         <a href="index.html" class="header-link">
-          <img class="shopverse-logo"
-            src="images/shopverse-black.png">
-          <img class="shopverse-mobile-logo"
-            src="images/logo-black.png">
+          <img class="shopverse-logo" src="images/shopverse-black.png">
+          <img class="shopverse-mobile-logo" src="images/logo-black.png">
         </a>
       </div>
 
       <div class="shopverse-header-middle-section">
         <input class="search-bar" type="text" placeholder="Search">
-
         <button class="search-button">
           <img class="search-icon" src="images/icons/search-icon.png">
         </button>
@@ -47,10 +45,10 @@
     </div>
 
     <div class="main">
-      <div class="order-tracking js-order-tracking">
-      </div>
+      <div class="order-tracking js-order-tracking"></div>
     </div>
 
+    <script type="module" src="scripts/shared/universalEffects.js"></script>
     <script type="module" src="scripts/tracking.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { getProduct, loadProductsFetch } from '../data/products.js';
+import { getProduct, loadProducts } from '../data/products.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 function getOrder(orderId) {
@@ -8,22 +8,16 @@ function getOrder(orderId) {
 
 async function loadPage() {
   try {
-    await loadProductsFetch();
+    await new Promise((resolve) => loadProducts(resolve));
 
     const url = new URL(window.location.href);
     const orderId = url.searchParams.get('orderId');
     const productId = url.searchParams.get('productId');
 
+    const trackingContainer = document.querySelector('.js-order-tracking');
+
     if (!orderId || !productId) {
-      document.querySelector('.js-order-tracking').innerHTML = `
-        <div class="error-message">
-          <h2>Invalid tracking information</h2>
-          <p>Unable to find tracking details for this order.</p>
-          <a class="back-to-orders-link link-primary" href="orders.html">
-            View all orders
-          </a>
-        </div>
-      `;
+      trackingContainer.innerHTML = errorHTML("Invalid tracking information", "Unable to find tracking details for this order.");
       return;
     }
 
@@ -31,108 +25,97 @@ async function loadPage() {
     const product = getProduct(productId);
 
     if (!order || !product) {
-      document.querySelector('.js-order-tracking').innerHTML = `
-        <div class="error-message">
-          <h2>Order or product not found</h2>
-          <p>Unable to find tracking details for this order.</p>
-          <a class="back-to-orders-link link-primary" href="orders.html">
-            View all orders
-          </a>
-        </div>
-      `;
+      trackingContainer.innerHTML = errorHTML("Order or product not found", "Unable to find tracking details for this order.");
       return;
     }
 
-    let productDetails;
-    order.products.forEach((details) => {
-      if (details.productId === product.id) {
-        productDetails = details;
-      }
-    });
-
+    const productDetails = order.products.find(p => p.productId === product.id);
     if (!productDetails) {
-      document.querySelector('.js-order-tracking').innerHTML = `
-        <div class="error-message">
-          <h2>Product not found in order</h2>
-          <p>Unable to find this product in the specified order.</p>
-          <a class="back-to-orders-link link-primary" href="orders.html">
-            View all orders
-          </a>
-        </div>
-      `;
+      trackingContainer.innerHTML = errorHTML("Product not found in order", "Unable to find this product in the specified order.");
       return;
     }
 
     const today = dayjs();
+
+    const isOld = dayjs(order.orderTime).year() < 2023;
+    if (isOld) {
+      order.orderTime = today.format('YYYY-MM-DD');
+      productDetails.estimatedDeliveryTime = today.add(4, 'day').format('YYYY-MM-DD');
+    }
+
     const orderTime = dayjs(order.orderTime);
     const deliveryTime = dayjs(productDetails.estimatedDeliveryTime);
-    const percentProgress = Math.min(100, Math.max(0, ((today - orderTime) / (deliveryTime - orderTime)) * 100));
 
-    const deliveredMessage = today < deliveryTime ? 'Arriving on' : 'Delivered on';
+    const totalDays = deliveryTime.diff(orderTime, 'day', true);
+    const elapsedDays = today.diff(orderTime, 'day', true);
+    const percentProgress = Math.max(0, Math.min(100, (elapsedDays / totalDays) * 100));
+
+    let statusStage = '';
+    if (percentProgress < 33.33) {
+      statusStage = 'preparing';
+    } else if (percentProgress < 100) {
+      statusStage = 'shipped';
+    } else {
+      statusStage = 'delivered';
+    }
+
+    const deliveredMessage = statusStage === 'delivered' ? 'Delivered on' : 'Arriving on';
+
+    console.log({
+      orderTime: orderTime.format('YYYY-MM-DD'),
+      deliveryTime: deliveryTime.format('YYYY-MM-DD'),
+      today: today.format('YYYY-MM-DD'),
+      totalDays,
+      elapsedDays,
+      percentProgress: percentProgress.toFixed(2),
+      statusStage
+    });
 
     const trackingHTML = `
-      <a class="back-to-orders-link link-primary" href="orders.html">
-        View all orders
-      </a>
-
-      <div class="delivery-date">
-        ${deliveredMessage} ${dayjs(productDetails.estimatedDeliveryTime).format('dddd, MMMM D')}
-      </div>
-
-      <div class="product-info">
-        ${product.name}
-      </div>
-
-      <div class="product-info">
-        Quantity: ${productDetails.quantity}
-      </div>
-
+      <a class="back-to-orders-link link-primary" href="orders.html">View all orders</a>
+      <div class="delivery-date">${deliveredMessage} ${deliveryTime.format('dddd, MMMM D')}</div>
+      <div class="product-info">${product.name}</div>
+      <div class="product-info">Quantity: ${productDetails.quantity}</div>
       <img class="product-image" src="${product.image}" alt="${product.name}">
-
       <div class="progress-labels-container">
-        <div class="progress-label ${percentProgress < 50 ? 'current-status' : ''}">
-          Preparing
-        </div>
-        <div class="progress-label ${(percentProgress >= 50 && percentProgress < 100) ? 'current-status' : ''}">
-          Shipped
-        </div>
-        <div class="progress-label ${percentProgress >= 100 ? 'current-status' : ''}">
-          Delivered
-        </div>
+        <div class="progress-label ${statusStage === 'preparing' ? 'current-status' : ''}">Preparing</div>
+        <div class="progress-label ${statusStage === 'shipped' ? 'current-status' : ''}">Shipped</div>
+        <div class="progress-label ${statusStage === 'delivered' ? 'current-status' : ''}">Delivered</div>
       </div>
-
       <div class="progress-bar-container">
         <div class="progress-bar" style="width: ${percentProgress}%;"></div>
       </div>
     `;
 
-    document.querySelector('.js-order-tracking').innerHTML = trackingHTML;
+    trackingContainer.innerHTML = trackingHTML;
 
     setTimeout(() => {
       if (window.UniversalEffects) {
         window.UniversalEffects.initAll({
-          scroll: ['.js-order-tracking', '.delivery-date', '.product-info', '.product-image'],
+          scroll: ['.js-order-tracking', '.delivery-date', '.product-info', '.product-image', '.progress-labels-container', '.progress-bar-container'],
           hover: ['.product-image', '.delivery-date'],
           buttons: ['.back-to-orders-link']
         });
-        
+
         setTimeout(() => {
           window.UniversalEffects.startAnimation();
         }, 200);
       }
     }, 100);
   } catch (error) {
-    console.error('Error loading tracking page:', error);
-    document.querySelector('.js-order-tracking').innerHTML = `
-      <div class="error-message">
-        <h2>Error loading tracking information</h2>
-        <p>There was an error loading the tracking details. Please try again.</p>
-        <a class="back-to-orders-link link-primary" href="orders.html">
-          View all orders
-        </a>
-      </div>
-    `;
+    console.error('Tracking page load error:', error);
+    document.querySelector('.js-order-tracking').innerHTML = errorHTML("Error loading tracking information", "There was an error loading the tracking details. Please try again.");
   }
+}
+
+function errorHTML(title, message) {
+  return `
+    <div class="error-message">
+      <h2>${title}</h2>
+      <p>${message}</p>
+      <a class="back-to-orders-link link-primary" href="orders.html">View all orders</a>
+    </div>
+  `;
 }
 
 if (document.readyState === 'loading') {
