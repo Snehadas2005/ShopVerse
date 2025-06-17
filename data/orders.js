@@ -1,31 +1,28 @@
 import { getProduct } from './products.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import { addToCart } from './cart.js';
+import { addToCart, calculateCartQuantity } from './cart.js';
 
 function getOrders() {
   try {
-    const orders = JSON.parse(localStorage.getItem('orders')) || [];
-    console.log('Retrieved orders:', orders); 
-    return orders;
+    return JSON.parse(localStorage.getItem('orders')) || [];
   } catch (error) {
     console.error('Error retrieving orders:', error);
     return [];
   }
 }
 
-function loadThreeJS() {
-  return new Promise((resolve, reject) => {
-    if (typeof THREE !== 'undefined') {
-      resolve();
-      return;
-    }
+function getImagePath(imagePath) {
+  if (!imagePath) return '';
+  if (imagePath.startsWith('http') || imagePath.startsWith('/')) return imagePath;
+  return `${imagePath}`;
+}
 
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('Failed to load Three.js'));
-    document.head.appendChild(script);
-  });
+function updateCartQuantityUI() {
+  const quantity = calculateCartQuantity();
+  const cartQuantityElement = document.querySelector('.js-cart-quantity');
+  if (cartQuantityElement) {
+    cartQuantityElement.textContent = quantity;
+  }
 }
 
 function renderEmptyOrders() {
@@ -44,41 +41,30 @@ function renderEmptyOrders() {
       </div>
     </div>
   `;
-
-  setTimeout(() => {
-    if (window.UniversalEffects) {
-      window.UniversalEffects.initScrollAnimations(['.empty-orders-container']);
-      window.UniversalEffects.addButtonEffects(['.start-shopping-btn']);
-      window.UniversalEffects.startAnimation();
-    }
-  }, 100);
 }
 
 function productsListHTML(order) {
   let html = '';
-
   order.products.forEach((productDetails) => {
     const product = getProduct(productDetails.productId);
-    if (!product) return;
+    const imagePath = getImagePath(product?.image || '');
 
     html += `
       <div class="product-image-container">
-        <img src="${product.image}" alt="${product.name}">
+        <img src="${imagePath}" alt="${product?.name || 'Unknown Product'}" />
       </div>
-
       <div class="product-details">
-        <div class="product-name">${product.name}</div>
+        <div class="product-name">${product?.name || 'Unknown Product'}</div>
         <div class="product-delivery-date">
-          Arriving on: ${productDetails.estimatedDeliveryTime}
+          Arriving on: ${dayjs(productDetails.estimatedDeliveryTime).format('MMMM D')}
         </div>
         <div class="product-quantity">Quantity: ${productDetails.quantity}</div>
-        <button class="buy-again-button button-primary js-buy-again" data-product-id="${product.id}">
+        <button class="buy-again-button button-primary js-buy-again" data-product-id="${productDetails.productId}">
           <span class="buy-again-message">Buy it again</span>
         </button>
       </div>
-
       <div class="product-actions">
-        <a href="tracking.html?orderId=${order.id}&productId=${product.id}">
+        <a href="tracking.html?orderId=${order.id}&productId=${productDetails.productId}">
           <button class="track-package-button button-secondary">Track package</button>
         </a>
       </div>
@@ -91,8 +77,7 @@ function productsListHTML(order) {
 async function loadPage() {
   try {
     const orders = getOrders();
-
-    if (!orders || orders.length === 0) {
+    if (!orders.length) {
       renderEmptyOrders();
       return;
     }
@@ -100,22 +85,11 @@ async function loadPage() {
     let ordersHTML = '';
 
     orders.forEach((order) => {
-      const orderTime = order.orderTime;
-      
-      let total = order.totalPrice || 0;
-      
-      if (!total || total === 0) {
-        order.products.forEach((p) => {
-          const prod = getProduct(p.productId);
-          if (prod) {
-            total += prod.priceCount * p.quantity;
-          }
-        });
-        
-        if (order.shippingPrice) {
-          total += order.shippingPrice;
-        }
-      }
+      let total = 0;
+      order.products.forEach((productDetails) => {
+        const product = getProduct(productDetails.productId);
+        if (product) total += product.priceCount * productDetails.quantity;
+      });
 
       ordersHTML += `
         <div class="order-container">
@@ -123,7 +97,7 @@ async function loadPage() {
             <div class="order-header-left-section">
               <div class="order-date">
                 <div class="order-header-label">Order Placed:</div>
-                <div>${orderTime}</div>
+                <div>${dayjs(order.orderTime).format('MMMM D')}</div>
               </div>
               <div class="order-total">
                 <div class="order-header-label">Total:</div>
@@ -148,6 +122,8 @@ async function loadPage() {
     document.querySelectorAll('.js-buy-again').forEach((btn) => {
       btn.addEventListener('click', () => {
         addToCart(btn.dataset.productId);
+        updateCartQuantityUI();
+
         btn.innerHTML = 'Added';
         setTimeout(() => {
           btn.innerHTML = '<span class="buy-again-message">Buy it again</span>';
@@ -155,27 +131,7 @@ async function loadPage() {
       });
     });
 
-    setTimeout(() => {
-      if (window.UniversalEffects) {
-        window.UniversalEffects.initScrollAnimations([
-          '.order-container',
-          '.product-image-container',
-          '.product-details',
-          '.product-actions',
-          '.page-title'
-        ]);
-        window.UniversalEffects.addHoverEffects([
-          '.order-container',
-          '.product-image-container',
-          '.product-details'
-        ]);
-        window.UniversalEffects.addButtonEffects([
-          '.buy-again-button',
-          '.track-package-button'
-        ]);
-        window.UniversalEffects.startAnimation();
-      }
-    }, 100);
+    updateCartQuantityUI();
   } catch (err) {
     console.error('Failed to load orders page:', err);
     renderEmptyOrders();
@@ -184,19 +140,18 @@ async function loadPage() {
 
 async function initializeOrders() {
   try {
-    await loadThreeJS();
     await loadPage();
 
     setTimeout(() => {
       if (window.UniversalEffects) {
-        const success = window.UniversalEffects.initAll({
+        window.UniversalEffects.initAll({
           scroll: [
             '.order-container',
             '.product-image-container',
             '.product-details',
             '.product-actions',
             '.page-title',
-            '.empty-orders-container'
+            '.empty-cart-container'
           ],
           hover: [
             '.order-container',
@@ -206,26 +161,11 @@ async function initializeOrders() {
           buttons: [
             '.buy-again-button',
             '.track-package-button',
-            '.start-shopping-btn'
+            '.continue-shopping-btn'
           ]
         });
-
-        if (success) {
-          setTimeout(() => {
-            window.UniversalEffects.startAnimation();
-          }, 200);
-        }
       }
-    }, 100);
-  } catch (error) {
-    console.error('Failed to initialize Three.js:', error);
-    await loadPage();
-  }
-}
-
-async function initialize() {
-  try {
-    await initializeOrders();
+    }, 300);
   } catch (error) {
     console.error('Orders initialization failed:', error);
     await loadPage();
@@ -233,7 +173,7 @@ async function initialize() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initialize);
+  document.addEventListener('DOMContentLoaded', initializeOrders);
 } else {
-  initialize();
+  initializeOrders();
 }

@@ -104,7 +104,11 @@ export function renderPaymentSummary() {
         });
 
         const orderTotal = orderProductPrice + orderShippingPrice;
-        console.log('Order total calculated:', orderTotal); 
+        
+        console.log('Order calculation details:');
+        console.log('- Product price:', orderProductPrice);
+        console.log('- Shipping price:', orderShippingPrice);
+        console.log('- Total calculated:', orderTotal);
 
         if (orderProducts.length > 0 && orderTotal > 0) {
           const orderId = generateOrderId();
@@ -114,20 +118,18 @@ export function renderPaymentSummary() {
             orderTime: dayjs().format('MMMM D'),
             products: orderProducts,
             totalQuantity: orderTotalQuantity,
-            productPrice: orderProductPrice,
-            shippingPrice: orderShippingPrice,
-            totalPrice: orderTotal
+            productPrice: Number(orderProductPrice), 
+            shippingPrice: Number(orderShippingPrice), 
+            totalPrice: Number(orderTotal)
           };
 
-          console.log('Creating order:', order); 
+          console.log('Creating order with totalPrice:', order.totalPrice, typeof order.totalPrice);
 
           const existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
-          console.log('Existing orders before:', existingOrders); 
-
           existingOrders.unshift(order); 
           
           localStorage.setItem('orders', JSON.stringify(existingOrders));
-          console.log('Orders saved:', existingOrders); 
+          console.log('Order saved successfully:', order);
 
           resetCart();
           
